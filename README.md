@@ -1,2 +1,2 @@
 # PoliConnect
-An app for Politecnico Grancolombiano
+An app for the Institution Politecnico Grancolombiano
