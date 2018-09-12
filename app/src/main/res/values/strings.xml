@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">PoliConnect2.0</string>
+    <string name="todo">TODO</string>
+
+    <!-- Pantalla usuario -->
+    <string name="nombreUsuarioAutenticado">Alejandro Arévalo</string><!--Se reemplaza por variable en Usuario-->
+    <string name="codigoUsuarioAutenticado">1520010902</string><!--Se reemplaza por variable en Usuario-->
+    <string name="siguienteClase">Siguiente Clase:</string>
+    <string name="nombreClase">Práctica Aplicada</string><!--Se reemplaza por variable en Usuario-->
+    <string name="fechaHoraClase">Sábado 12:00 p.m.</string><!--Se reemplaza por variable en Usuario-->
+    <string name="salonClase">C-101</string>
+
 </resources>
