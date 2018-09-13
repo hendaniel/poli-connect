@@ -18,48 +18,62 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.892" />
+        app:layout_constraintGuide_percent="0.882" />
 
     <ImageView
         android:id="@+id/backgroundHeader"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:contentDescription="@string/todo"
+        android:contentDescription="@string/comentBackgroundHeader"
         app:layout_constraintBottom_toTopOf="@+id/header"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@color/colorHeader" />
 
     <ImageView
         android:id="@+id/backgroundFooter"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:contentDescription="@string/comentBackgroundFooter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/footer"
-        app:srcCompat="@color/colorHeader"
-        android:contentDescription="@string/todo" />
+        app:srcCompat="@color/colorHeader" />
 
     <ImageButton
         android:id="@+id/settingsButton"
-        android:layout_width="27dp"
-        android:layout_height="26dp"
+        android:layout_width="37dp"
+        android:layout_height="32dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="8dp"
-        android:contentDescription="@string/todo"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/comentBotonConfig"
         app:layout_constraintBottom_toTopOf="@+id/header"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.019"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.076"
-        app:srcCompat="@mipmap/ic_launcher_round" />
+        app:srcCompat="@drawable/botonconfig" />
+
+    <ImageView
+        android:id="@+id/backgroundPoli"
+        android:layout_width="892dp"
+        android:layout_height="354dp"
+        android:layout_marginTop="8dp"
+        android:alpha="0.6"
+        android:contentDescription="@string/comentBackgroundMiddle"
+        app:layout_constraintBottom_toTopOf="@+id/backgroundFooter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backgroundHeader"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/backgroundpoli" />
 
     <TextView
         android:id="@+id/username"
@@ -170,5 +184,106 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dateNextClass"
         app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/noteButton"
+        style="@android:style/Widget.Material.Light.ImageButton"
+        android:layout_width="332dp"
+        android:layout_height="82dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/comentBotonNotas"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/backgroundPoli"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backgroundHeader"
+        app:layout_constraintVertical_bias="0.085"
+        app:srcCompat="@drawable/botonnotas" />
+
+    <ImageButton
+        android:id="@+id/scheduleButton"
+        android:layout_width="331dp"
+        android:layout_height="74dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/comentBotonHorario"
+        app:layout_constraintBottom_toBottomOf="@+id/backgroundPoli"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/noteButton"
+        app:layout_constraintVertical_bias="0.209"
+        app:srcCompat="@drawable/botonhorario" />
+
+    <ImageButton
+        android:id="@+id/requestButton"
+        android:layout_width="329dp"
+        android:layout_height="79dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/comentBotonSolicitud"
+        app:layout_constraintBottom_toBottomOf="@+id/backgroundPoli"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scheduleButton"
+        app:layout_constraintVertical_bias="0.551"
+        app:srcCompat="@drawable/botonsolicitudes" />
+
+    <ImageButton
+        android:id="@+id/libraryButton"
+        android:layout_width="67dp"
+        android:layout_height="55dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/comentBotonBiblioteca"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="@+id/backgroundFooter"
+        app:layout_constraintTop_toBottomOf="@+id/backgroundPoli"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/biblioteca_ns" />
+
+    <ImageButton
+        android:id="@+id/userButton"
+        android:layout_width="wrap_content"
+        android:layout_height="56dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/comentBotonUsuario"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/libraryButton"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="@+id/backgroundFooter"
+        app:layout_constraintTop_toTopOf="@+id/footer"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/usuario_s" />
+
+    <ImageButton
+        android:id="@+id/welfareButton"
+        android:layout_width="47dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/comentBotonBienestar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundFooter"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toEndOf="@+id/libraryButton"
+        app:layout_constraintTop_toTopOf="@+id/footer"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/bienestar_ns" />
 
 </android.support.constraint.ConstraintLayout>
