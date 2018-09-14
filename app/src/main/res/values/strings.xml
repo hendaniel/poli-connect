@@ -1,6 +1,5 @@
 <resources>
 <<<<<<< HEAD
-    <string name="app_name">PoliConnect2.0</string>
 
     <!-- Pantalla usuario -->
     <string name="nombreUsuarioAutenticado">Alejandro Arévalo</string><!--Se reemplaza por variable en Usuario-->
