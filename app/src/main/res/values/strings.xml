@@ -1,4 +1,5 @@
 <resources>
+<<<<<<< HEAD
     <string name="app_name">PoliConnect2.0</string>
 
     <!-- Pantalla usuario -->
@@ -21,5 +22,25 @@
     <string name="comentBotonBiblioteca">Icono para boton de pantalla de Biblioteca</string>
     <string name="comentBotonBienestar">Icono para boton de pantalla de Bienestar Universitario</string>
     <string name="comentBotonUsuario">Icono para boton de pantalla de Usuario</string>
+=======
+    <string name="app_name">PoliConnect 2.0</string>
+    <string name="policonnect">PoliConnect</string>
+    <string name="toast_backagain">Presione una vez mas para cerrar PoliConnect</string>
+    <string name="string_dummy">Hola,\n¿Qué hace?</string>
+
+
+
+
+    <!-- Strings para Login-->
+    <string name="hint_user">Usuario</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="button_enter">Iniciar Sesión</string>
+    <string name="toast_nouser">Ingrese su usuario</string>
+    <string name="toast_nopass">Ingrese su contraseña</string>
+    <string name="toast_nocoincidence">Datos incorrectos</string>
+    <string name="progressdialog_loggin">Iniciando Sesión</string>
+    <string name="progressdialog_pleasewait">Por favor espere</string>
+
+>>>>>>> master
 
 </resources>
