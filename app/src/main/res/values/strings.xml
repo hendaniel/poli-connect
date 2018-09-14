@@ -1,34 +1,9 @@
 <resources>
-<<<<<<< HEAD
 
-    <!-- Pantalla usuario -->
-    <string name="nombreUsuarioAutenticado">Alejandro Arévalo</string><!--Se reemplaza por variable en Usuario-->
-    <string name="codigoUsuarioAutenticado">1520010902</string><!--Se reemplaza por variable en Usuario-->
-    <string name="siguienteClase">Siguiente Clase:</string>
-    <string name="nombreClase">Práctica Aplicada</string><!--Se reemplaza por variable en Usuario-->
-    <string name="fechaHoraClase">Sábado 12:00 p.m.</string><!--Se reemplaza por variable en Usuario-->
-    <string name="salonClase">C-101</string>
-    <string name="comentBackgroundHeader">Fondo de encabezado de pantalla de Usuario</string>
-    <string name="comentBackgroundMiddle">Fondo de pantalla con foto del Poli</string>
-    <string name="comentBotonConfig">Icono para boton de configuracion</string>
-    <string name="comentBotonNotas">Icono para boton de pantalla de notas</string>
-    <string name="comentBotonSolicitud">Icono para boton de pantalla de solicitudes</string>
-    <string name="comentBotonHorario">Icono para boton de pantalla de Horario</string>
-
-
-    <!-- Comment de elementos generales -->
-    <string name="comentBackgroundFooter">Fondo de pie de pagina de pantalla de Usuario</string>
-    <string name="comentBotonBiblioteca">Icono para boton de pantalla de Biblioteca</string>
-    <string name="comentBotonBienestar">Icono para boton de pantalla de Bienestar Universitario</string>
-    <string name="comentBotonUsuario">Icono para boton de pantalla de Usuario</string>
-=======
     <string name="app_name">PoliConnect 2.0</string>
     <string name="policonnect">PoliConnect</string>
     <string name="toast_backagain">Presione una vez mas para cerrar PoliConnect</string>
     <string name="string_dummy">Hola,\n¿Qué hace?</string>
-
-
-
 
     <!-- Strings para Login-->
     <string name="hint_user">Usuario</string>
@@ -40,6 +15,25 @@
     <string name="progressdialog_loggin">Iniciando Sesión</string>
     <string name="progressdialog_pleasewait">Por favor espere</string>
 
->>>>>>> master
+    <!-- Pantalla usuario -->
+    <string name="nombreUsuarioAutenticado">Alejandro Arévalo</string><!--Se reemplaza por variable en Usuario-->
+    <string name="codigoUsuarioAutenticado">1520010902</string><!--Se reemplaza por variable en Usuario-->
+    <string name="siguienteClase">Siguiente Clase:</string>
+    <string name="nombreClase">Práctica Aplicada</string><!--Se reemplaza por variable en Usuario-->
+    <string name="fechaHoraClase">Sábado 12:00 p.m.</string><!--Se reemplaza por variable en Usuario-->
+    <string name="salonClase">C-101</string>
+
+    <string name="comentBackgroundHeader">Fondo de encabezado de pantalla de Usuario</string>
+    <string name="comentBackgroundMiddle">Fondo de pantalla con foto del Poli</string>
+    <string name="comentBotonConfig">Icono para boton de configuracion</string>
+    <string name="comentBotonNotas">Icono para boton de pantalla de notas</string>
+    <string name="comentBotonSolicitud">Icono para boton de pantalla de solicitudes</string>
+    <string name="comentBotonHorario">Icono para boton de pantalla de Horario</string>
+
+    <!-- Comment de elementos generales -->
+    <string name="comentBackgroundFooter">Fondo de pie de pagina de pantalla de Usuario</string>
+    <string name="comentBotonBiblioteca">Icono para boton de pantalla de Biblioteca</string>
+    <string name="comentBotonBienestar">Icono para boton de pantalla de Bienestar Universitario</string>
+    <string name="comentBotonUsuario">Icono para boton de pantalla de Usuario</string>
 
 </resources>

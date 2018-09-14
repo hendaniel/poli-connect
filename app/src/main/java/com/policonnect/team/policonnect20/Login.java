@@ -11,9 +11,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 /**
- * Esta clase define objetos que contienen tantos enteros aleatorios entre 0 y 1000 como se le definen al crear un objeto
+ * Esta clase maneja la pantalla de LogIn y sus acciones
  *
- * @version 1
+ * @version 2
  * @author: PoliConnect Team
  **/
 public class Login extends AppCompatActivity {
@@ -27,7 +27,6 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER_PORTRAIT);
 
         mLogInButton = findViewById(R.id.loginButton);
         mUser = findViewById(R.id.loginName);
@@ -65,7 +64,7 @@ public class Login extends AppCompatActivity {
         loadingBar.show();
         if (confirmData(dataUser, dataPass)) {
             loadingBar.cancel();
-            Intent i = new Intent(Login.this, Dummy.class);
+            Intent i = new Intent(Login.this, Usuario.class);
             startActivity(i);
             finish();
             return;

@@ -2,14 +2,10 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-<<<<<<< HEAD
-    <color name="colorHeader">#0f385a</color>
-=======
-
-    <color name="blue1">#0f385a</color>
-    <color name="blue2">#33415f</color>
     <color name="blueAccent">#1fb2de</color>
+    <color name="colorHeader">#33415f</color>
+
+    <color name="blue2">#33415f</color>
     <color name="backgroundBlue">#c80f385a</color>
     <color name="white">#ffff</color>
     <color name="black">#000</color>
