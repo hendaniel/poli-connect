@@ -17,9 +17,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
+        <activity android:name=".Usuario"></activity>
+=======
         <activity
             android:name=".Dummy"
             android:label="@string/app_name" />
+>>>>>>> master
     </application>
 
 
