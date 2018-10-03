@@ -16,11 +16,11 @@
     <string name="progressdialog_pleasewait">Por favor espere</string>
 
     <!-- Pantalla usuario -->
-    <string name="nombreUsuarioAutenticado">Alejandro Arévalo</string><!--Se reemplaza por variable en Usuario-->
-    <string name="codigoUsuarioAutenticado">1520010902</string><!--Se reemplaza por variable en Usuario-->
+    <string name="nombreUsuarioAutenticado">Alejandro Arévalo</string><!--Se reemplaza por variable en MainActivity-->
+    <string name="codigoUsuarioAutenticado">1520010902</string><!--Se reemplaza por variable en MainActivity-->
     <string name="siguienteClase">Siguiente Clase:</string>
-    <string name="nombreClase">Práctica Aplicada</string><!--Se reemplaza por variable en Usuario-->
-    <string name="fechaHoraClase">Sábado 12:00 p.m.</string><!--Se reemplaza por variable en Usuario-->
+    <string name="nombreClase">Práctica Aplicada</string><!--Se reemplaza por variable en MainActivity-->
+    <string name="fechaHoraClase">Sábado 12:00 p.m.</string><!--Se reemplaza por variable en MainActivity-->
     <string name="salonClase">C-101</string>
 
     <string name="comentBackgroundHeader">Fondo de encabezado de pantalla de Usuario</string>

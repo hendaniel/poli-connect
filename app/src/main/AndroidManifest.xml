@@ -19,9 +19,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Usuario"
+            android:name=".MainActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait">
+
+        </activity>
     </application>
 
 
