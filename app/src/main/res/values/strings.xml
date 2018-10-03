@@ -30,10 +30,31 @@
     <string name="comentBotonSolicitud">Icono para boton de pantalla de solicitudes</string>
     <string name="comentBotonHorario">Icono para boton de pantalla de Horario</string>
 
+    <!-- Pantalla Principal Biblioteca -->
+    <string name="comenBackgroundBiblioteca">Fondo de pantalla con foto de la biblioteca</string>
+    <string name="comentBotonComputadores">Icono de boton para computadores</string>
+    <string name="comentBotonEstudio">Icono de boton para Cubiculos de estudio</string>
+    <string name="comentBotonVideo">Icono de boton para Cubiculos de video</string>
+    <string name="comentBotonRecursos">Icono de boton para Recursos de la biblioteca</string>
+    <string name="comentVistaDisponibilidad">Imagen de fondo para capacidad del servicio</string>
+    <string name="numerogenerico">15</string>
+    
+    <!-- Pantalla Principal Bienestar -->
+    <string name="comentBackgroudBienestar">Fondo de pantalla con foto del poli</string>
+    <string name="comentBotonTenisMesa">Icono de boton para Tenis de mesa</string>
+    <string name="comentBotonDanza">Icono de boton para Danza</string>
+    <string name="comentBotonGuitarraE">Icono de boton para guitarra Eléctrica</string>
+    <string name="comentBotonGuitarraA">Icono de boton para guitarra Acustica</string>
+    <string name="comentBotonGym">Icono de boton para Gimnasio</string>
+    <string name="comentBotonPintura">Icono de Boton para Pintura</string>
+
     <!-- Comment de elementos generales -->
     <string name="comentBackgroundFooter">Fondo de pie de pagina de pantalla de Usuario</string>
     <string name="comentBotonBiblioteca">Icono para boton de pantalla de Biblioteca</string>
     <string name="comentBotonBienestar">Icono para boton de pantalla de Bienestar Universitario</string>
     <string name="comentBotonUsuario">Icono para boton de pantalla de Usuario</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
