@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fm = getSupportFragmentManager();
         setInitialFragment();
 
-        mViewPager.setAdapter(new FragmentPagerAdapter(fm){
+        mViewPager.setAdapter(new FragmentPagerAdapter(fm) {
             @Override
             public Fragment getItem(int position) {
                 return fragments[position];
@@ -54,7 +54,8 @@ public class MainActivity extends AppCompatActivity {
 
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) { }
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
 
             @Override
             public void onPageSelected(int position) {
@@ -62,18 +63,19 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onPageScrollStateChanged(int state) { }
+            public void onPageScrollStateChanged(int state) {
+            }
         });
         //nombreUsuario = (TextView)findViewById(R.id.nombreUsuario);
-            //nombreUsuario.setText("Alejandro Arevalo");
-        }
+        //nombreUsuario.setText("Alejandro Arevalo");
+    }
 
-    private void setChecked(int position){
+    private void setChecked(int position) {
 
-        for(int i = 0; i < mNumberOfFragment; i++){
+        for (int i = 0; i < mNumberOfFragment; i++) {
             menu[i].setImageBitmap(images[i]);
         }
-        menu[position].setImageBitmap(images[position+mNumberOfFragment]);
+        menu[position].setImageBitmap(images[position + mNumberOfFragment]);
     }
 
     private void setInitialFragment() {
@@ -83,20 +85,20 @@ public class MainActivity extends AppCompatActivity {
             fragments[1] = new PantallaBiblioteca();
             fragments[2] = new PantallaBienestar();
         }
-        if(menu == null){
+        if (menu == null) {
             menu = new ImageButton[mNumberOfFragment];
             menu[0] = findViewById(R.id.userButton);
             menu[1] = findViewById(R.id.libraryButton);
             menu[2] = findViewById(R.id.welfareButton);
         }
-        if(images==null){
-            images=new Bitmap[mNumberOfFragment*2];
-            images[0]=BitmapFactory.decodeResource(getResources(), R.drawable.user_ns);
-            images[1]=BitmapFactory.decodeResource(getResources(), R.drawable.library_ns);
-            images[2]=BitmapFactory.decodeResource(getResources(), R.drawable.welfare_ns);
-            images[3]=BitmapFactory.decodeResource(getResources(), R.drawable.user_s);
-            images[4]=BitmapFactory.decodeResource(getResources(), R.drawable.library_s);
-            images[5]=BitmapFactory.decodeResource(getResources(), R.drawable.welfare_s);
+        if (images == null) {
+            images = new Bitmap[mNumberOfFragment * 2];
+            images[0] = BitmapFactory.decodeResource(getResources(), R.drawable.user_ns);
+            images[1] = BitmapFactory.decodeResource(getResources(), R.drawable.library_ns);
+            images[2] = BitmapFactory.decodeResource(getResources(), R.drawable.welfare_ns);
+            images[3] = BitmapFactory.decodeResource(getResources(), R.drawable.user_s);
+            images[4] = BitmapFactory.decodeResource(getResources(), R.drawable.library_s);
+            images[5] = BitmapFactory.decodeResource(getResources(), R.drawable.welfare_s);
         }
 
         menu[0].setOnClickListener(new View.OnClickListener() {
@@ -139,28 +141,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
     @Override
     public void onStart() {
         super.onStart();
         Log.d(TAG, "onStart() called");
     }
+
     @Override
     public void onPause() {
         super.onPause();
         Log.d(TAG, "onPause() called");
     }
+
     @Override
     public void onResume() {
         super.onResume();
         Log.d(TAG, "onResume() called");
     }
+
     @Override
     public void onStop() {
         super.onStop();
         Log.d(TAG, "onStop() called");
     }
+
     @Override
     public void onDestroy() {
         super.onDestroy();

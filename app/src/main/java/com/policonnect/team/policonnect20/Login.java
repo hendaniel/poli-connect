@@ -2,8 +2,8 @@ package com.policonnect.team.policonnect20;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -101,7 +101,6 @@ public class Login extends AppCompatActivity {
             Toast.makeText(getBaseContext(), R.string.toast_backagain, Toast.LENGTH_SHORT).show();
         back_pressed = System.currentTimeMillis();
     }
-
 
 
     @Override
