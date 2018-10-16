@@ -14,6 +14,10 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+/**
+ * @version 1
+ * @author: PoliConnect Team
+ */
 public class MainActivity extends AppCompatActivity {
     private static long back_pressed;
     private ViewPager mViewPager;

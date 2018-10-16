@@ -31,14 +31,19 @@
     <string name="comentBotonHorario">Icono para boton de pantalla de Horario</string>
 
     <!-- Pantalla Principal Biblioteca -->
-    <string name="comenBackgroundBiblioteca">Fondo de pantalla con foto de la biblioteca</string>
+
+    <string name="numerogenerico">15</string>
+
+    <string name="cubiculosEstudio">Cubículos de Estudio</string>
+    <string name="servicio">Cubículo</string>
+
+    <string name="comentBackgroundBiblioteca">Fondo de pantalla con foto de la biblioteca</string>
     <string name="comentBotonComputadores">Icono de boton para computadores</string>
     <string name="comentBotonEstudio">Icono de boton para Cubiculos de estudio</string>
     <string name="comentBotonVideo">Icono de boton para Cubiculos de video</string>
     <string name="comentBotonRecursos">Icono de boton para Recursos de la biblioteca</string>
     <string name="comentVistaDisponibilidad">Imagen de fondo para capacidad del servicio</string>
-    <string name="numerogenerico">15</string>
-    
+
     <!-- Pantalla Principal Bienestar -->
     <string name="comentBackgroudBienestar">Fondo de pantalla con foto del poli</string>
     <string name="comentBotonTenisMesa">Icono de boton para Tenis de mesa</string>
