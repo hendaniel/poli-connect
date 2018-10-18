@@ -5,14 +5,11 @@
     android:orientation="vertical"
     android:paddingBottom="10dp">
 
-
-
     <ImageView
         android:id="@+id/itemBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/library_one_avaliable"/>
-
 
     <TextView
         android:id="@+id/itemCubName"
@@ -27,7 +24,7 @@
     <TextView
         android:id="@+id/itemCubNum"
         android:paddingTop="12sp"
-        android:paddingLeft="160sp"
+        android:paddingLeft="200sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/numerogenerico"

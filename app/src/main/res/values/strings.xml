@@ -34,8 +34,12 @@
 
     <string name="numerogenerico">15</string>
 
+    <string name="cubiculosVideo">Cubículos de Video</string>
     <string name="cubiculosEstudio">Cubículos de Estudio</string>
-    <string name="servicio">Cubículo</string>
+    <string name="computadores">Computadores</string>
+    <string name="servicio">Servicio</string>
+    <string name="cubiculo">Cubículo</string>
+    <string name="computador">Computador</string>
 
     <string name="comentBackgroundBiblioteca">Fondo de pantalla con foto de la biblioteca</string>
     <string name="comentBotonComputadores">Icono de boton para computadores</string>

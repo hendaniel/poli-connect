@@ -24,7 +24,17 @@
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".BibliotecaCubiculos"
+            android:name=".BibliotecaStudy"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".BibliotecaVideo"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".BibliotecaComputers"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
         </activity>

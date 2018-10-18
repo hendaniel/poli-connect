@@ -17,25 +17,46 @@ import android.widget.ImageButton;
  * @author: PoliConnect Team
  */
 public class PantallaBiblioteca extends Fragment {
-    private ImageButton mStudy;
 
+    private ImageButton mComputer;
+    private ImageButton mStudy;
+    private ImageButton mVideo;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_pantalla_biblioteca, container, false);
-        mStudy = view.findViewById(R.id.studyButton);
 
+        mComputer = view.findViewById(R.id.computerButton);
+        mStudy = view.findViewById(R.id.studyButton);
+        mVideo = view.findViewById(R.id.videoButton);
+        setListenersButtons();
+
+        return view;
+    }
+
+    private void setListenersButtons() {
+        mComputer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), BibliotecaComputers.class);
+                startActivity(i);
+            }
+        });
         mStudy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), BibliotecaCubiculos.class);
+                Intent i = new Intent(getActivity(), BibliotecaStudy.class);
                 startActivity(i);
             }
         });
 
-
-
-        return view;
+        mVideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), BibliotecaVideo.class);
+                startActivity(i);
+            }
+        });
     }
 }

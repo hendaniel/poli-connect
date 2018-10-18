@@ -28,7 +28,7 @@ public class ListaDeServicios extends RecyclerView.Adapter<ListaDeServicios.View
     @NonNull
     @Override
     public ViewHolderDatos onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_biblioteca_study, null, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_biblioteca_service, null, false);
         return new ViewHolderDatos(view);
     }
 
