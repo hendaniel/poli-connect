@@ -8,10 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import java.util.ArrayList;
 
 /**
  * Esta clase maneja el Recycle View de todos los servicios de la biblioteca
+ *
  * @version 1
  * @author: PoliConnect Team
  */
@@ -42,7 +44,9 @@ public class ListaDeServicios extends RecyclerView.Adapter<ListaDeServicios.View
         return listDatos.size();
     }
 
-    /**Esta clase maneja como serán agregados los datos a cada item del Recycler View
+    /**
+     * Esta clase maneja como serán agregados los datos a cada item del Recycler View
+     *
      * @version 1
      * @author: PoliConnect Team
      */
@@ -53,17 +57,15 @@ public class ListaDeServicios extends RecyclerView.Adapter<ListaDeServicios.View
 
         public ViewHolderDatos(View itemView) {
             super(itemView);
-            Log.d(TAG, "VH lol");
             name = itemView.findViewById(R.id.itemCubName);
             back = itemView.findViewById(R.id.itemBack);
             numb = itemView.findViewById(R.id.itemCubNum);
             Log.d(TAG, "Puesto");
-
         }
 
         public void asignarDatos(Servicio servicio) {
             name.setText(servicio.getName());
-            numb.setText(servicio.getNumber()+"");
+            numb.setText(servicio.getNumber() + "");
 
             if (servicio.isOccupied() && servicio.isGroup())
                 back.setImageResource(R.drawable.library_group_unavaliable);

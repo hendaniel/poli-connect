@@ -11,5 +11,6 @@
     <color name="black">#000</color>
     <color name="BackGroundDarkBlue">#0f385a</color>
     <color name="backgroundDarkBlue">#0f385a</color>
-    >>>>>>> master
+
+    <color name="shadow">#c1000000</color>
 </resources>

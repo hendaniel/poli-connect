@@ -21,6 +21,8 @@ public class PantallaBiblioteca extends Fragment {
     private ImageButton mComputer;
     private ImageButton mStudy;
     private ImageButton mVideo;
+    private ImageButton mResource;
+
 
     @Nullable
     @Override
@@ -30,6 +32,8 @@ public class PantallaBiblioteca extends Fragment {
         mComputer = view.findViewById(R.id.computerButton);
         mStudy = view.findViewById(R.id.studyButton);
         mVideo = view.findViewById(R.id.videoButton);
+        mResource = view.findViewById(R.id.resourceButton);
+
         setListenersButtons();
 
         return view;
@@ -55,6 +59,13 @@ public class PantallaBiblioteca extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), BibliotecaVideo.class);
+                startActivity(i);
+            }
+        });
+        mResource.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), BibliotecaResource.class);
                 startActivity(i);
             }
         });
