@@ -34,10 +34,11 @@ public class BibliotecaStudy extends Activity {
 
         orderedByDisponibility = false;
         setCubiculos();
+        orderCubiculosByNumber();
 
-        mBackButton = findViewById(R.id.backButtonLibrary);
+        mBackButton = findViewById(R.id.backButton);
         mRecycle = findViewById(R.id.recyclerCubiculos);
-        mTitle = findViewById(R.id.titleService);
+        mTitle = findViewById(R.id.title);
 
         mTitle.setText(getString(R.string.cubiculosEstudio));
 
@@ -109,6 +110,7 @@ public class BibliotecaStudy extends Activity {
         listDatos.add(new Servicio(name, 13, false, true));
         listDatos.add(new Servicio(name, 14, false, false));
         listDatos.add(new Servicio(name, 15, true, false));
+        listDatos.add(new Servicio(name, 16, true, true));
     }
 
 }

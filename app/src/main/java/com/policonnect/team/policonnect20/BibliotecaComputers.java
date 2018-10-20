@@ -35,9 +35,9 @@ public class BibliotecaComputers extends Activity {
         orderedByDisponibility = false;
         setComputers();
 
-        mBackButton = findViewById(R.id.backButtonLibrary);
+        mBackButton = findViewById(R.id.backButton);
         mRecycle = findViewById(R.id.recyclerCubiculos);
-        mTitle = findViewById(R.id.titleService);
+        mTitle = findViewById(R.id.title);
 
         mTitle.setText(getString(R.string.computadores));
 

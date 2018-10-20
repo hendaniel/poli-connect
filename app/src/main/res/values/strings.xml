@@ -15,7 +15,14 @@
     <string name="progressdialog_loggin">Iniciando Sesión</string>
     <string name="progressdialog_pleasewait">Por favor espere</string>
 
-    <!-- Pantalla usuario -->
+    <!-- Pantalla Usuario -->
+    <string name="notas">Notas</string>
+    <string name="nota">Nota</string>
+    <string name="aprobado">Aprobado</string>
+    <string name="reprobado">Reprobado</string>
+    <string name="indicador">Indicador</string>
+    <string name="materia">Materia</string>
+
     <string name="nombreUsuarioAutenticado">Alejandro Arévalo</string><!--Se reemplaza por variable en MainActivity-->
     <string name="codigoUsuarioAutenticado">1520010902</string><!--Se reemplaza por variable en MainActivity-->
     <string name="siguienteClase">Siguiente Clase:</string>

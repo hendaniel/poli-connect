@@ -8,17 +8,20 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
 
 /**
- * Esta clase maneja la pantalla que muestra los cubiculos de video disponibles y no disponibles
+ * Esta clase maneja la pantalla que muestra los cubiculos de estudio disponibles y no disponibles
  * de la biblioteca
  *
- * @version 1
+ * @version 2
  * @author: PoliConnect Team
  */
-public class BibliotecaVideo extends Activity {
+public class UsuarioNotas extends Activity {
 
-    private ArrayList<Servicio> listDatos;
+    private ArrayList<Notas> listDatos;
     private RecyclerView mRecycle;
     private ImageButton mBackButton;
     private TextView mTitle;
@@ -27,16 +30,17 @@ public class BibliotecaVideo extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_biblioteca_service);
+        setContentView(R.layout.activity_usuario_notas);
 
         orderedByDisponibility = false;
-        setCubiculos();
+        setNotas();
+        orderCubiculosByDate();
 
         mBackButton = findViewById(R.id.backButton);
-        mRecycle = findViewById(R.id.recyclerCubiculos);
+        mRecycle = findViewById(R.id.recyclerNotas);
         mTitle = findViewById(R.id.title);
 
-        mTitle.setText(getString(R.string.cubiculosVideo));
+        mTitle.setText(getString(R.string.notas));
 
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,22 +50,34 @@ public class BibliotecaVideo extends Activity {
         });
 
         mRecycle.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        ListaDeServicios adapter = new ListaDeServicios(listDatos);
+        ListaDeNotas adapter = new ListaDeNotas(listDatos);
         mRecycle.setAdapter(adapter);
+    }
 
+    /**
+     * Este método ordena los cubículos o servicios por números
+     */
+    private void orderCubiculosByDate() {
+        Collections.sort(listDatos, new Comparator<Notas>() {
+            @Override
+            public int compare(Notas o1, Notas o2) {
+                int n1 = o1.getDate();
+                int n2 = o2.getDate();
+                return Integer.compare(n2, n1);
+            }
+        });
     }
 
     /**
      * Este método agrega a todos los servicios a un Array List para que sea mostrado en el Recycle
      * View
      */
-    private void setCubiculos() {
-        String name = getString(R.string.cubiculo);
+    private void setNotas() {
         listDatos = new ArrayList<>();
-        listDatos.add(new Servicio(name, 1, true, true));
-        listDatos.add(new Servicio(name, 2, true, false));
-        listDatos.add(new Servicio(name, 3, false, false));
-        listDatos.add(new Servicio(name, 4, false, false));
-        listDatos.add(new Servicio(name, 5, true, false));
+        listDatos.add(new Notas("Matemática",4.8,181));
+        listDatos.add(new Notas("Algebra",3.0,181));
+        listDatos.add(new Notas("Publicidad",2.98,181));
+
     }
+
 }

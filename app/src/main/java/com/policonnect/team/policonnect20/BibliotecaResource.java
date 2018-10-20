@@ -1,10 +1,7 @@
 package com.policonnect.team.policonnect20;
 
 import android.app.Activity;
-import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.v4.content.res.ResourcesCompat;
-import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -23,8 +20,8 @@ public class BibliotecaResource extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_biblioteca_web_resources);
 
-        mBackButton = findViewById(R.id.backButtonLibrary);
-        mTitle = findViewById(R.id.titleService);
+        mBackButton = findViewById(R.id.backButton);
+        mTitle = findViewById(R.id.title);
         mWebView = findViewById(R.id.webFrame);
 
         mTitle.setText(getString(R.string.recursos));

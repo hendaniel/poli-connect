@@ -69,4 +69,8 @@ public class Servicio {
     public void setGroup(boolean group) {
         this.group = group;
     }
+
+    public String getNumberString() {
+        return Integer.toString(number);
+    }
 }

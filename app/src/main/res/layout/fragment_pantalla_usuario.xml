@@ -110,7 +110,7 @@
         android:textColor="@color/white"
         android:textSize="12sp"
         android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@+id/titleService"
+        app:layout_constraintBottom_toTopOf="@+id/title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.007"
         app:layout_constraintStart_toStartOf="parent"
@@ -118,7 +118,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/titleService"
+        android:id="@+id/title"
         android:layout_width="141dp"
         android:layout_height="70dp"
         android:layout_marginStart="8dp"

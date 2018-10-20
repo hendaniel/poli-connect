@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 /**
@@ -17,19 +19,19 @@ import java.util.ArrayList;
  * @version 1
  * @author: PoliConnect Team
  */
-public class ListaDeServicios extends RecyclerView.Adapter<ListaDeServicios.ViewHolderDatos> {
+public class ListaDeNotas extends RecyclerView.Adapter<ListaDeNotas.ViewHolderDatos> {
 
     private static final String TAG = "ListaDeServicios";
-    private ArrayList<Servicio> listDatos;
+    private ArrayList<Notas> listDatos;
 
-    public ListaDeServicios(ArrayList<Servicio> listDatos) {
+    public ListaDeNotas(ArrayList<Notas> listDatos) {
         this.listDatos = listDatos;
     }
 
     @NonNull
     @Override
     public ViewHolderDatos onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_biblioteca_service, null, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_usuario_notas, null, false);
         return new ViewHolderDatos(view);
     }
 
@@ -50,30 +52,34 @@ public class ListaDeServicios extends RecyclerView.Adapter<ListaDeServicios.View
      * @author: PoliConnect Team
      */
     public class ViewHolderDatos extends RecyclerView.ViewHolder {
+        ImageView stateFrame;
+        TextView state;
         TextView name;
-        ImageView back;
-        TextView numb;
+        TextView grade;
 
         public ViewHolderDatos(View itemView) {
             super(itemView);
-            name = itemView.findViewById(R.id.itemCubName);
-            back = itemView.findViewById(R.id.itemBack);
-            numb = itemView.findViewById(R.id.itemCubNum);
+            stateFrame = itemView.findViewById(R.id.stateFrame);
+            state = itemView.findViewById(R.id.itemState);
+            name = itemView.findViewById(R.id.itemName);
+            grade = itemView.findViewById(R.id.itemGrade);
             Log.d(TAG, "Puesto");
         }
 
-        public void asignarDatos(Servicio servicio) {
-            name.setText(servicio.getName());
-            numb.setText(servicio.getNumberString());
-
-            if (servicio.isOccupied() && servicio.isGroup())
-                back.setImageResource(R.drawable.library_group_unavaliable);
-            else if (servicio.isOccupied() && !servicio.isGroup())
-                back.setImageResource(R.drawable.library_one_unavaliable);
-            else if (!servicio.isOccupied() && servicio.isGroup())
-                back.setImageResource(R.drawable.library_group_avaliable);
-            else
-                back.setImageResource(R.drawable.library_one_avaliable);
+        public void asignarDatos(Notas nota) {
+            double valGrade = nota.getGrade();
+            int date = nota.getDate();
+            name.setText(nota.getMateria());
+            grade.setText(nota.getGradeString());
+            if (date < 182)
+                if (nota.getState()<0) {
+                    stateFrame.setImageResource(R.drawable.short_rectangle_red);
+                    state.setText(R.string.reprobado);
+                }
+                else if (nota.getState()>0) {
+                    stateFrame.setImageResource(R.drawable.short_rectangle_green);
+                    state.setText(R.string.aprobado);
+                }
 
         }
     }
