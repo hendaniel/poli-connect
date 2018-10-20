@@ -12,7 +12,7 @@ public class Notas {
 
     public Notas(String materia, double grade, int date) {
         this.materia = materia;
-        this.grade = grade;
+        this.grade = ((int) (grade * 10)) / 10.0;
         this.date = date;
         if (this.date == 182)
             state = 0;
