@@ -93,24 +93,7 @@ public class BibliotecaStudy extends Activity {
      * View
      */
     private void setCubiculos() {
-        String name = getString(R.string.cubiculo);
-        listDatos = new ArrayList<>();
-        listDatos.add(new Servicio(name, 1, true, true));
-        listDatos.add(new Servicio(name, 2, true, true));
-        listDatos.add(new Servicio(name, 3, false, true));
-        listDatos.add(new Servicio(name, 4, true, true));
-        listDatos.add(new Servicio(name, 5, true, true));
-        listDatos.add(new Servicio(name, 6, false, true));
-        listDatos.add(new Servicio(name, 7, true, true));
-        listDatos.add(new Servicio(name, 8, false, false));
-        listDatos.add(new Servicio(name, 9, false, false));
-        listDatos.add(new Servicio(name, 10, false, true));
-        listDatos.add(new Servicio(name, 11, true, false));
-        listDatos.add(new Servicio(name, 12, true, false));
-        listDatos.add(new Servicio(name, 13, false, true));
-        listDatos.add(new Servicio(name, 14, false, false));
-        listDatos.add(new Servicio(name, 15, true, false));
-        listDatos.add(new Servicio(name, 16, true, true));
+        listDatos=DataBase.getListDataBStudy();
     }
 
 }

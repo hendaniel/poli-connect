@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
 import java.util.ArrayList;
 
 /**
@@ -56,12 +57,6 @@ public class BibliotecaVideo extends Activity {
      * View
      */
     private void setCubiculos() {
-        String name = getString(R.string.cubiculo);
-        listDatos = new ArrayList<>();
-        listDatos.add(new Servicio(name, 1, true, true));
-        listDatos.add(new Servicio(name, 2, true, false));
-        listDatos.add(new Servicio(name, 3, false, false));
-        listDatos.add(new Servicio(name, 4, false, false));
-        listDatos.add(new Servicio(name, 5, true, false));
+        listDatos = DataBase.getListDataBVideo();
     }
 }

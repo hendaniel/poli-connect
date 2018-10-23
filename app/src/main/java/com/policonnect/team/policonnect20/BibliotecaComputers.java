@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
 import java.util.ArrayList;
 
 /**
@@ -59,22 +60,7 @@ public class BibliotecaComputers extends Activity {
      * View
      */
     private void setComputers() {
-        String name = getString(R.string.computador);
-        listDatos = new ArrayList<>();
-        for (int i = 0; i < 40; i += 5) {
-            listDatos.add(new Servicio(name, 1 + i, true, false));
-            listDatos.add(new Servicio(name, 2 + i, true, false));
-            listDatos.add(new Servicio(name, 3 + i, false, false));
-            listDatos.add(new Servicio(name, 4 + i, false, false));
-            listDatos.add(new Servicio(name, 5 + i, true, false));
-        }
-        /*
-        listDatos.add(new Servicio(name, 1, true, false));
-        listDatos.add(new Servicio(name, 2, true, false));
-        listDatos.add(new Servicio(name, 3, false, false));
-        listDatos.add(new Servicio(name, 4, false, false));
-        listDatos.add(new Servicio(name, 5, true, false));
-        */
+        listDatos = DataBase.getListDataBComputer();
     }
 
     @Override

@@ -5,10 +5,11 @@ import java.util.ArrayList;
 public class DataBase {
 
 
-    public ArrayList<Servicio> listDataBComputer;
-    public ArrayList<Servicio> listDataBStudy;
-    public ArrayList<Servicio> listDataBVideo;
-    public ArrayList<Notas> listDataUGrades;
+    public static ArrayList<Servicio> listDataBComputer;
+    public static ArrayList<Servicio> listDataBStudy;
+    public static ArrayList<Servicio> listDataBVideo;
+    public static ArrayList<Notas> listDataUGrades;
+    private static DataBase dataBase;
     private String cubiculo;
     private String computador;
 
@@ -21,7 +22,15 @@ public class DataBase {
         setUGradesData();
     }
 
+    public static DataBase enableDataBase(){
+        if(dataBase == null){
+            dataBase = new DataBase();
+        }
+        return dataBase;
+    }
+
     private void setBComputerData() {
+
         listDataBComputer = new ArrayList<>();
         for (int i = 0; i < 40; i += 5) {
             listDataBComputer.add(new Servicio(computador, 1 + i, true, false));
@@ -80,19 +89,19 @@ public class DataBase {
         listDataUGrades.add(new Notas("Lecto-Escritura",3.0,181));
     }
 
-    public ArrayList<Servicio> getListDataBComputer() {
+    public static ArrayList<Servicio> getListDataBComputer() {
         return listDataBComputer;
     }
 
-    public ArrayList<Servicio> getListDataBStudy() {
+    public static ArrayList<Servicio> getListDataBStudy() {
         return listDataBStudy;
     }
 
-    public ArrayList<Servicio> getListDataBVideo() {
+    public static ArrayList<Servicio> getListDataBVideo() {
         return listDataBVideo;
     }
 
-    public ArrayList<Notas> getListDataUGrades() {
+    public static ArrayList<Notas> getListDataUGrades() {
         return listDataUGrades;
     }
 }

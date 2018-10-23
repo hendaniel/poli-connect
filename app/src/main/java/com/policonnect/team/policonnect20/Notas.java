@@ -11,7 +11,7 @@ public class Notas {
     private int date;
 
     public Notas(String materia, double grade, int date) {
-        this.materia = materia.substring(Math.min(materia.length(),15));
+        this.materia = materia.substring(0,Math.min(materia.length(),15));
         this.grade = ((int) (grade * 10)) / 10.0;
         this.date = date;
         if (this.date == 182)

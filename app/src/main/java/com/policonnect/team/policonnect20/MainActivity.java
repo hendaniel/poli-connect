@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_bar);
 
-        database = new DataBase();
+        DataBase.enableDataBase();
 
         mViewPager = new ViewPageFragment(this);
         mViewPager.setId(R.id.view_pager);
