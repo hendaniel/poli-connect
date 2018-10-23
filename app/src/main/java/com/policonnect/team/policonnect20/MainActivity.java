@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private Fragment[] fragments;
     private ImageButton[] menu;
     private Bitmap[] images;
+    public DataBase database;
 
     private static final String TAG = "MainActivity";
 
@@ -34,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_bar);
+
+        database = new DataBase();
 
         mViewPager = new ViewPageFragment(this);
         mViewPager.setId(R.id.view_pager);

@@ -73,10 +73,22 @@ public class UsuarioNotas extends Activity {
      * View
      */
     private void setNotas() {
+
         listDatos = new ArrayList<>();
-        listDatos.add(new Notas("Matemática",4.8,181));
-        listDatos.add(new Notas("Algebra",3.0,181));
+        listDatos.add(new Notas("Matemática",4.8,161));
+        listDatos.add(new Notas("Algebra",3.0,162));
         listDatos.add(new Notas("Publicidad",2.98,181));
+        listDatos.add(new Notas("Introducción a la Ingeniería",3.0,181));
+        listDatos.add(new Notas("Francés I",2.98,181));
+        listDatos.add(new Notas("Probabilidad",3.0,181));
+        listDatos.add(new Notas("Estructura de Datos",2.98,181));
+        listDatos.add(new Notas("Física I",3.0,181));
+        listDatos.add(new Notas("Cálculo I",4.98,162));
+        listDatos.add(new Notas("Cálculo II",3.0,171));
+        listDatos.add(new Notas("Cálculo III",2.98,172));
+        listDatos.add(new Notas("Bases de Datos",3.0,181));
+        listDatos.add(new Notas("Programación de Computadores",5.0,162));
+        listDatos.add(new Notas("Lecto-Escritura",3.0,181));
 
     }
 

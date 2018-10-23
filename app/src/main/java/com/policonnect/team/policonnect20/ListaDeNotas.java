@@ -9,8 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 /**
@@ -72,11 +70,10 @@ public class ListaDeNotas extends RecyclerView.Adapter<ListaDeNotas.ViewHolderDa
             name.setText(nota.getMateria());
             grade.setText(nota.getGradeString());
             if (date < 182)
-                if (nota.getState()<0) {
+                if (nota.getState() < 0) {
                     stateFrame.setImageResource(R.drawable.short_rectangle_red);
                     state.setText(R.string.reprobado);
-                }
-                else if (nota.getState()>0) {
+                } else if (nota.getState() > 0) {
                     stateFrame.setImageResource(R.drawable.short_rectangle_green);
                     state.setText(R.string.aprobado);
                 }
