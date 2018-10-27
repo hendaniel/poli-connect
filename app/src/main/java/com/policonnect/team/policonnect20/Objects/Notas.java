@@ -1,4 +1,4 @@
-package com.policonnect.team.policonnect20;
+package com.policonnect.team.policonnect20.Objects;
 
 public class Notas {
 

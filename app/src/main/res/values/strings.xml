@@ -16,6 +16,8 @@
     <string name="progressdialog_pleasewait">Por favor espere</string>
 
     <!-- Pantalla Usuario -->
+    <string name="horario">Horario</string>
+
     <string name="notas">Notas</string>
     <string name="nota">Nota</string>
     <string name="aprobado">Aprobado</string>

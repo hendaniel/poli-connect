@@ -21,27 +21,31 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".MainActivityFragments.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".BibliotecaStudy"
+            android:name=".LibraryScreens.BibliotecaStudy"
             android:label="@string/app_name"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".BibliotecaVideo"
+            android:name=".LibraryScreens.BibliotecaVideo"
             android:label="@string/app_name"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".BibliotecaComputers"
+            android:name=".LibraryScreens.BibliotecaComputers"
             android:label="@string/app_name"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".BibliotecaResource"
+            android:name=".LibraryScreens.BibliotecaResource"
             android:label="@string/app_name"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".UsuarioNotas"
+            android:name=".UserScreens.UsuarioNotas"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".UserScreens.UsuarioHorario"
             android:label="@string/app_name"
             android:screenOrientation="portrait"/>
     </application>

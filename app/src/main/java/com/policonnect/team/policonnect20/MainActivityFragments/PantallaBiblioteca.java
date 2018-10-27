@@ -1,4 +1,4 @@
-package com.policonnect.team.policonnect20;
+package com.policonnect.team.policonnect20.MainActivityFragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+
+import com.policonnect.team.policonnect20.LibraryScreens.BibliotecaComputers;
+import com.policonnect.team.policonnect20.LibraryScreens.BibliotecaResource;
+import com.policonnect.team.policonnect20.LibraryScreens.BibliotecaStudy;
+import com.policonnect.team.policonnect20.LibraryScreens.BibliotecaVideo;
+import com.policonnect.team.policonnect20.R;
 
 
 /**

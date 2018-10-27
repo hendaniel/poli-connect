@@ -1,4 +1,4 @@
-package com.policonnect.team.policonnect20;
+package com.policonnect.team.policonnect20.MainActivityFragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import com.policonnect.team.policonnect20.R;
+import com.policonnect.team.policonnect20.UserScreens.UsuarioHorario;
+import com.policonnect.team.policonnect20.UserScreens.UsuarioNotas;
+
 /**
  * @version 1
  * @author: PoliConnect Team
@@ -17,6 +21,7 @@ import android.widget.ImageButton;
 public class PantallaUsuario extends Fragment {
 
     private ImageButton mGrades;
+    private ImageButton mSchedule;
 
     @Nullable
     @Override
@@ -24,6 +29,7 @@ public class PantallaUsuario extends Fragment {
         View view = inflater.inflate(R.layout.fragment_pantalla_usuario, container, false);
 
         mGrades = view.findViewById(R.id.noteButton);
+        mSchedule = view.findViewById(R.id.scheduleButton);
 
         setListenersButtons();
 
@@ -35,6 +41,13 @@ public class PantallaUsuario extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), UsuarioNotas.class);
+                startActivity(i);
+            }
+        });
+        mSchedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), UsuarioHorario.class);
                 startActivity(i);
             }
         });

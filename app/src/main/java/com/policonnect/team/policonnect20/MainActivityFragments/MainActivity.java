@@ -1,4 +1,4 @@
-package com.policonnect.team.policonnect20;
+package com.policonnect.team.policonnect20.MainActivityFragments;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -13,6 +13,9 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.policonnect.team.policonnect20.DataBase;
+import com.policonnect.team.policonnect20.R;
 
 /**
  * @version 1

@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.policonnect.team.policonnect20.MainActivityFragments.MainActivity;
+
 /**
  * Esta clase maneja la pantalla de LogIn y sus acciones
  *

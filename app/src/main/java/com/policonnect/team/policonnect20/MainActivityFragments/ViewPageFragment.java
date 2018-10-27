@@ -1,4 +1,4 @@
-package com.policonnect.team.policonnect20;
+package com.policonnect.team.policonnect20.MainActivityFragments;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

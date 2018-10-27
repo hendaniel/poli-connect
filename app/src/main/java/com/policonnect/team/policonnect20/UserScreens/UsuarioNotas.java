@@ -1,4 +1,4 @@
-package com.policonnect.team.policonnect20;
+package com.policonnect.team.policonnect20.UserScreens;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,6 +7,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import com.policonnect.team.policonnect20.DataBase;
+import com.policonnect.team.policonnect20.ListAdapters.ListaDeNotas;
+import com.policonnect.team.policonnect20.Objects.Notas;
+import com.policonnect.team.policonnect20.R;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -19,9 +25,9 @@ import java.util.Comparator;
  * @version 2
  * @author: PoliConnect Team
  */
-public class BibliotecaStudy extends Activity {
+public class UsuarioNotas extends Activity {
 
-    private ArrayList<Servicio> listDatos;
+    private ArrayList<Notas> listDatos;
     private RecyclerView mRecycle;
     private ImageButton mBackButton;
     private TextView mTitle;
@@ -30,17 +36,17 @@ public class BibliotecaStudy extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_biblioteca_service);
+        setContentView(R.layout.activity_usuario_notas);
 
         orderedByDisponibility = false;
-        setCubiculos();
-        orderCubiculosByNumber();
+        setNotas();
+        orderCubiculosByDate();
 
         mBackButton = findViewById(R.id.backButton);
-        mRecycle = findViewById(R.id.recyclerCubiculos);
+        mRecycle = findViewById(R.id.recyclerNotas);
         mTitle = findViewById(R.id.title);
 
-        mTitle.setText(getString(R.string.cubiculosEstudio));
+        mTitle.setText(getString(R.string.notas));
 
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,39 +56,19 @@ public class BibliotecaStudy extends Activity {
         });
 
         mRecycle.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        ListaDeServicios adapter = new ListaDeServicios(listDatos);
+        ListaDeNotas adapter = new ListaDeNotas(listDatos);
         mRecycle.setAdapter(adapter);
-
-    }
-
-
-    /**
-     * Este método ordena los cubículos o servicios por disponibilidad
-     */
-    private void orderCubiculosByDisponibility() {
-        Collections.sort(listDatos, new Comparator<Servicio>() {
-            @Override
-            public int compare(Servicio o1, Servicio o2) {
-                int n1 = o1.getNumber();
-                int n2 = o2.getNumber();
-                if (o1.isOccupied() == o2.isOccupied())
-                    return Integer.compare(n1, n2);
-                return Boolean.compare(o1.isOccupied(), o2.isOccupied());
-
-
-            }
-        });
     }
 
     /**
      * Este método ordena los cubículos o servicios por números
      */
-    private void orderCubiculosByNumber() {
-        Collections.sort(listDatos, new Comparator<Servicio>() {
+    private void orderCubiculosByDate() {
+        Collections.sort(listDatos, new Comparator<Notas>() {
             @Override
-            public int compare(Servicio o1, Servicio o2) {
-                int n1 = o1.getNumber();
-                int n2 = o2.getNumber();
+            public int compare(Notas o1, Notas o2) {
+                int n1 = o1.getDate();
+                int n2 = o2.getDate();
                 return Integer.compare(n1, n2);
             }
         });
@@ -92,8 +78,8 @@ public class BibliotecaStudy extends Activity {
      * Este método agrega a todos los servicios a un Array List para que sea mostrado en el Recycle
      * View
      */
-    private void setCubiculos() {
-        listDatos=DataBase.getListDataBStudy();
+    private void setNotas() {
+        listDatos = DataBase.getListDataUGrades();
     }
 
 }

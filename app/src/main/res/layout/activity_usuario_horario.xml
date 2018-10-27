@@ -54,15 +54,10 @@
         </LinearLayout>
 
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerCubiculos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@color/transparent"
-            android:overScrollMode="never"
-            android:paddingTop="30dp"
-            android:scrollbars="vertical" />
+        <ExpandableListView
+            android:id="@+id/ScheduleList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></ExpandableListView>
     </LinearLayout>
 
 </RelativeLayout>
