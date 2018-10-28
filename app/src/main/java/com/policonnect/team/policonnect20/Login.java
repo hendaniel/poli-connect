@@ -2,13 +2,15 @@ package com.policonnect.team.policonnect20;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.policonnect.team.policonnect20.MainActivityFragments.MainActivity;
 
 /**
  * Esta clase maneja la pantalla de LogIn y sus acciones
@@ -101,7 +103,6 @@ public class Login extends AppCompatActivity {
             Toast.makeText(getBaseContext(), R.string.toast_backagain, Toast.LENGTH_SHORT).show();
         back_pressed = System.currentTimeMillis();
     }
-
 
 
     @Override

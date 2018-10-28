@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="10dp">
+
+    <ImageView
+        android:id="@+id/itemBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/library_one_avaliable" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/itemCubName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:paddingLeft="40sp"
+        android:paddingTop="12sp"
+        android:shadowColor="@color/shadow"
+        android:shadowDx="2"
+        android:shadowDy="1"
+        android:shadowRadius="1"
+        android:text="@string/servicio"
+        android:textColor="@color/white"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/itemCubNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:paddingLeft="30dp"
+        android:paddingTop="12sp"
+        android:shadowColor="@color/shadow"
+        android:shadowDx="2"
+        android:shadowDy="1"
+        android:shadowRadius="1"
+        android:text="@string/numerogenerico"
+        android:textColor="@color/white"
+        android:textSize="25sp" />
+    </LinearLayout>
+
+</RelativeLayout>

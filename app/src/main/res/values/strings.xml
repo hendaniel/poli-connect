@@ -15,7 +15,16 @@
     <string name="progressdialog_loggin">Iniciando Sesión</string>
     <string name="progressdialog_pleasewait">Por favor espere</string>
 
-    <!-- Pantalla usuario -->
+    <!-- Pantalla Usuario -->
+    <string name="horario">Horario</string>
+
+    <string name="notas">Notas</string>
+    <string name="nota">Nota</string>
+    <string name="aprobado">Aprobado</string>
+    <string name="reprobado">Reprobado</string>
+    <string name="indicador">Indicador</string>
+    <string name="materia">Materia</string>
+
     <string name="nombreUsuarioAutenticado">Alejandro Arévalo</string><!--Se reemplaza por variable en MainActivity-->
     <string name="codigoUsuarioAutenticado">1520010902</string><!--Se reemplaza por variable en MainActivity-->
     <string name="siguienteClase">Siguiente Clase:</string>
@@ -31,14 +40,24 @@
     <string name="comentBotonHorario">Icono para boton de pantalla de Horario</string>
 
     <!-- Pantalla Principal Biblioteca -->
-    <string name="comenBackgroundBiblioteca">Fondo de pantalla con foto de la biblioteca</string>
+
+    <string name="numerogenerico">15</string>
+
+    <string name="cubiculosVideo">Cubículos de Video</string>
+    <string name="cubiculosEstudio">Cubículos de Estudio</string>
+    <string name="computadores">Computadores</string>
+    <string name="recursos">Recursos</string>
+    <string name="servicio">Servicio</string>
+    <string name="cubiculo">Cubículo</string>
+    <string name="computador">Computador</string>
+
+    <string name="comentBackgroundBiblioteca">Fondo de pantalla con foto de la biblioteca</string>
     <string name="comentBotonComputadores">Icono de boton para computadores</string>
     <string name="comentBotonEstudio">Icono de boton para Cubiculos de estudio</string>
     <string name="comentBotonVideo">Icono de boton para Cubiculos de video</string>
     <string name="comentBotonRecursos">Icono de boton para Recursos de la biblioteca</string>
     <string name="comentVistaDisponibilidad">Imagen de fondo para capacidad del servicio</string>
-    <string name="numerogenerico">15</string>
-    
+
     <!-- Pantalla Principal Bienestar -->
     <string name="comentBackgroudBienestar">Fondo de pantalla con foto del poli</string>
     <string name="comentBotonTenisMesa">Icono de boton para Tenis de mesa</string>

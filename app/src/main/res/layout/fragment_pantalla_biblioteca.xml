@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PantallaBiblioteca">
+    tools:context=".MainActivityFragments.PantallaBiblioteca">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -20,12 +20,12 @@
         android:id="@+id/backgroundLibrary"
         android:layout_width="1019dp"
         android:layout_height="867dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:alpha="0.7"
-        android:contentDescription="@string/comenBackgroundBiblioteca"
+        android:contentDescription="@string/comentBackgroundBiblioteca"
         android:src="@drawable/background_biblioteca"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,7 +35,7 @@
 
     <ImageButton
         android:id="@+id/computerButton"
-        android:layout_width="251dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:background="@android:color/transparent"
@@ -49,7 +49,7 @@
 
     <ImageButton
         android:id="@+id/studyButton"
-        android:layout_width="252dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:contentDescription="@string/comentBotonEstudio"
@@ -62,7 +62,7 @@
 
     <ImageButton
         android:id="@+id/videoButton"
-        android:layout_width="251dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:contentDescription="@string/comentBotonVideo"
@@ -134,9 +134,9 @@
         android:id="@+id/numberCapacityComputer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/numerogenerico"
         android:textColor="@color/black"
         android:textSize="35sp"
@@ -149,9 +149,9 @@
         android:id="@+id/numberCapacityStudy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/numerogenerico"
         android:textColor="@color/black"
         android:textSize="35sp"
@@ -164,9 +164,9 @@
         android:id="@+id/numberCapacityVideo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/numerogenerico"
         android:textColor="@color/black"
         android:textSize="35sp"

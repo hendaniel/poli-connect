@@ -6,10 +6,14 @@
     <color name="colorHeader">#0f385a</color>
 
     <color name="blue2">#33415f</color>
+    <color name="green">#A6CE38</color>
+    <color name="yellow">#E6B44E</color>
     <color name="backgroundBlue">#c80f385a</color>
     <color name="white">#ffff</color>
+    <color name="grey">#313030</color>
     <color name="black">#000</color>
-    <color name="BackGroundDarkBlue">#0f385a</color>
+    <color name="transparent">#00000000</color>
     <color name="backgroundDarkBlue">#0f385a</color>
-    >>>>>>> master
+
+    <color name="shadow">#c1000000</color>
 </resources>
