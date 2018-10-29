@@ -21,16 +21,30 @@ public class DataBase {
     private static ArrayList<Servicio> listDataBVideo;
     private static ArrayList<Notas> listDataUGrades;
     private static ArrayList<Subject>[] listDataUSchedule;
+
+    private static int availableComputer;
+    private static int availableStudy;
+    private static int availableVideo;
+
+    private static String studentName;
+    private static String studentCode;
+
     private static DataBase dataBase;
+
     private String cubiculo = "Cubículo";
-
-
     private String computador = "Computador";
 
+
     public DataBase() {
+        setStudentData();
         setBComputerData();
         setBStudyData();
         setBVideoData();
+    }
+
+    private void setStudentData() {
+        studentName = "Alejandro Arévalo";
+        studentCode = "1520010666";
         setUGradesData();
         setUScheduleData();
     }
@@ -60,6 +74,8 @@ public class DataBase {
             listDataBComputer.add(new Servicio(computador, 4 + i, false, false));
             listDataBComputer.add(new Servicio(computador, 5 + i, true, false));
         }
+
+        setAvailableComputer();
     }
 
     /**
@@ -83,6 +99,8 @@ public class DataBase {
         listDataBStudy.add(new Servicio(cubiculo, 14, false, false));
         listDataBStudy.add(new Servicio(cubiculo, 15, true, false));
         listDataBStudy.add(new Servicio(cubiculo, 16, true, true));
+
+        setAvailableStudy();
     }
 
     /**
@@ -95,6 +113,8 @@ public class DataBase {
         listDataBVideo.add(new Servicio(cubiculo, 3, false, false));
         listDataBVideo.add(new Servicio(cubiculo, 4, false, false));
         listDataBVideo.add(new Servicio(cubiculo, 5, true, false));
+
+        setAvailableVideo();
     }
 
     /**
@@ -124,21 +144,42 @@ public class DataBase {
         for (int i = 0; i < listDataUSchedule.length; i++)
             listDataUSchedule[i] = new ArrayList<Subject>();
 
-        listDataUSchedule[1].add(new Subject("Francés I", 0));
-        listDataUSchedule[1].add(new Subject("Probabilidad", 6));
-        listDataUSchedule[1].add(new Subject("Circuitos Lógicos", 4));
-        listDataUSchedule[1].add(new Subject("Circuitos Lógicos", 5));
+        listDataUSchedule[1].add(new Subject("Francés I", "H-207", 0));
+        listDataUSchedule[1].add(new Subject("Probabilidad", "K-010", 6));
+        listDataUSchedule[1].add(new Subject("Circuitos Lógicos", "K-008", 4));
+        listDataUSchedule[1].add(new Subject("Circuitos Lógicos", "C-207", 5));
 
-        listDataUSchedule[3].add(new Subject("Francés I", 0));
-        listDataUSchedule[3].add(new Subject("Circuitos Lógicos", 5));
+        listDataUSchedule[3].add(new Subject("Francés I", "H-207", 0));
+        listDataUSchedule[3].add(new Subject("Circuitos Lógicos", "C-207", 5));
 
-        listDataUSchedule[4].add(new Subject("Probabilidad", 3));
+        listDataUSchedule[4].add(new Subject("Probabilidad", "K-010", 3));
 
-        listDataUSchedule[5].add(new Subject("Práctica Aplicada", 3));
-        listDataUSchedule[5].add(new Subject("Práctica Aplicada", 4));
+        listDataUSchedule[5].add(new Subject("Práctica Aplicada", "C-201", 3));
+        listDataUSchedule[5].add(new Subject("Práctica Aplicada", "C-201", 4));
 
         for (int i = 0; i < listDataUSchedule.length; i++)
             Collections.sort(listDataUSchedule[i]);
+    }
+
+    public void setAvailableComputer() {
+        availableComputer = 0;
+        for (int i = 0; i < listDataBComputer.size(); i++)
+            if (!listDataBComputer.get(i).isOccupied())
+                availableComputer++;
+    }
+
+    private void setAvailableStudy() {
+        availableStudy = 0;
+        for (int i = 0; i < listDataBStudy.size(); i++)
+            if (!listDataBStudy.get(i).isOccupied())
+                availableStudy++;
+    }
+
+    private void setAvailableVideo() {
+        availableVideo = 0;
+        for (int i = 0; i < listDataBVideo.size(); i++)
+            if (!listDataBVideo.get(i).isOccupied())
+                availableVideo++;
     }
 
     public static ArrayList<Servicio> getListDataBComputer() {
@@ -159,5 +200,25 @@ public class DataBase {
 
     public static ArrayList<Subject>[] getListDataUSchedule() {
         return listDataUSchedule;
+    }
+
+    public static String getAvailableComputerString() {
+        return Integer.toString(availableComputer);
+    }
+
+    public static String getAvailableStudyString() {
+        return Integer.toString(availableStudy);
+    }
+
+    public static String getAvailableVideoString() {
+        return Integer.toString(availableVideo);
+    }
+
+    public static String getStudentName() {
+        return studentName;
+    }
+
+    public static String getStudentCode() {
+        return studentCode;
     }
 }

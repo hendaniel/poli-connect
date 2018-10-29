@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.policonnect.team.policonnect20.DataBase;
@@ -31,8 +32,6 @@ public class MainActivity extends AppCompatActivity {
     public DataBase database;
 
     private static final String TAG = "MainActivity";
-
-    //private TextView nombreUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,8 +75,6 @@ public class MainActivity extends AppCompatActivity {
             public void onPageScrollStateChanged(int state) {
             }
         });
-        //nombreUsuario = (TextView)findViewById(R.id.nombreUsuario);
-        //nombreUsuario.setText("Alejandro Arevalo");
     }
 
     private void setChecked(int position) {

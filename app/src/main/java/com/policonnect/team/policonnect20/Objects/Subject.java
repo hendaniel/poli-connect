@@ -15,10 +15,14 @@ public class Subject implements Comparable<Subject> {
      * 16:50, 7 de 17:00 a 18:30, 8 de 18:40 a 20:10, 9 de 20:20 a 21:50.
      */
     private String name;
+
+
+    private String classRoom;
     private int time;
 
-    public Subject(String name, int time) {
+    public Subject(String name, String classRoom, int time) {
         this.name = name;
+        this.classRoom =classRoom;
         this.time = time;
     }
 
@@ -36,6 +40,14 @@ public class Subject implements Comparable<Subject> {
 
     public void setTime(int time) {
         this.time = time;
+    }
+
+    public String getClassRoom() {
+        return classRoom;
+    }
+
+    public void setClassRoom(String classRoom) {
+        this.classRoom = classRoom;
     }
 
     @Override
