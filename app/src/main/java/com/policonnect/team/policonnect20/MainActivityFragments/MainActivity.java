@@ -1,5 +1,6 @@
 package com.policonnect.team.policonnect20.MainActivityFragments;
 
+import android.app.ProgressDialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -25,10 +26,14 @@ import com.policonnect.team.policonnect20.R;
 public class MainActivity extends AppCompatActivity {
     private static long back_pressed;
     private ViewPager mViewPager;
-    private final int mNumberOfFragment = 3;
+
     private Fragment[] fragments;
     private ImageButton[] menu;
     private Bitmap[] images;
+    private final int mNumberOfFragment = 3;
+
+
+    private ProgressDialog loadingBar;
     public DataBase database;
 
     private static final String TAG = "MainActivity";
@@ -37,8 +42,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_bar);
-
-        DataBase.enableDataBase();
 
         mViewPager = new ViewPageFragment(this);
         mViewPager.setId(R.id.view_pager);
@@ -75,6 +78,18 @@ public class MainActivity extends AppCompatActivity {
             public void onPageScrollStateChanged(int state) {
             }
         });
+
+        setDataBase();
+    }
+
+    private void setDataBase() {
+        loadingBar = new ProgressDialog(this, R.style.Theme_AppCompat_DayNight_Dialog);
+        loadingBar.setCanceledOnTouchOutside(false);
+        loadingBar.setTitle(R.string.progressdialog_gettingdb);
+        loadingBar.setMessage(getString(R.string.progressdialog_pleasewait));
+        loadingBar.show();
+        DataBase.enableDataBase();
+        loadingBar.cancel();
     }
 
     private void setChecked(int position) {

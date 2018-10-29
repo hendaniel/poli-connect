@@ -48,6 +48,30 @@
             android:name=".UserScreens.UsuarioHorario"
             android:label="@string/app_name"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".WelfareScreens.BienestarBaile"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".WelfareScreens.BienestarGuitarraAcustica"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".WelfareScreens.BienestarGuitarraElectrica"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".WelfareScreens.BienestarGym"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".WelfareScreens.BienestarPintura"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".WelfareScreens.BienestarTenis"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"/>
     </application>
 
 

@@ -4,6 +4,7 @@
     <string name="policonnect">PoliConnect</string>
     <string name="toast_backagain">Presione una vez mas para cerrar PoliConnect</string>
     <string name="string_dummy">Hola,\n¿Qué hace?</string>
+    <string name="progressdialog_pleasewait">Por favor espere</string>
 
     <!-- Strings para Login-->
     <string name="hint_user">Usuario</string>
@@ -13,7 +14,9 @@
     <string name="toast_nopass">Ingrese su contraseña</string>
     <string name="toast_nocoincidence">Datos incorrectos</string>
     <string name="progressdialog_loggin">Iniciando Sesión</string>
-    <string name="progressdialog_pleasewait">Por favor espere</string>
+
+    <!-- Main Activity -->
+    <string name="progressdialog_gettingdb">Obteniendo Datos</string>
 
     <!-- Pantalla Usuario -->
     <string name="horario">Horario</string>

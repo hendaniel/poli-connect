@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/transparent"
-            android:paddingStart="50dp"
+            android:paddingStart="30dp"
             android:src="@drawable/long_rectangle_white" />
 
     </LinearLayout>
@@ -48,12 +48,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="serif"
-            android:paddingLeft="172dp"
+            android:paddingLeft="152dp"
             android:paddingTop="1dp"
-            android:shadowColor="@color/shadow"
-            android:shadowDx="2"
-            android:shadowDy="1"
-            android:shadowRadius="1"
             android:text="@string/nota"
             android:textColor="@color/grey"
             android:textSize="15dp" />
@@ -64,11 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="serif"
-        android:paddingLeft="320dp"
-        android:shadowColor="@color/shadow"
-        android:shadowDx="2"
-        android:shadowDy="1"
-        android:shadowRadius="1"
+        android:paddingLeft="300dp"
         android:text="@string/numerogenerico"
         android:textColor="@color/grey"
         android:textSize="15dp" />

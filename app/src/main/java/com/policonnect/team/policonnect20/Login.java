@@ -63,7 +63,7 @@ public class Login extends AppCompatActivity {
             return;
         }
         loadingBar.setTitle(R.string.progressdialog_loggin);
-        loadingBar.setMessage("Por favor espere");
+        loadingBar.setMessage(getString(R.string.progressdialog_pleasewait));
         loadingBar.show();
         if (confirmData(dataUser, dataPass)) {
             loadingBar.cancel();
