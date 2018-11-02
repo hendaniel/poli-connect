@@ -15,5 +15,11 @@
     <color name="transparent">#00000000</color>
     <color name="backgroundDarkBlue">#0f385a</color>
 
+    <color name="colorPingPong">#C9534C</color>
+    <color name="colorRumba">#E09D23</color>
+    <color name="colorMusica">#21367E</color>
+    <color name="colorGimnasio">#5D8293</color>
+    <color name="colorPintura">#9C701F</color>
+
     <color name="shadow">#c1000000</color>
 </resources>
