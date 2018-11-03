@@ -1,11 +1,18 @@
 package com.policonnect.team.policonnect20;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
+import com.google.firebase.database.ValueEventListener;
 import com.policonnect.team.policonnect20.Objects.Notas;
 import com.policonnect.team.policonnect20.Objects.Servicio;
 import com.policonnect.team.policonnect20.Objects.Subject;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * Esta clase maneja el almacenamiento de cada uno de los datos que el usuario tiene permitido ver.
@@ -16,6 +23,7 @@ import java.util.Collections;
  */
 public class DataBase {
 
+    private DatabaseReference mDatabase;
     private static ArrayList<Servicio> listDataBComputer;
     private static ArrayList<Servicio> listDataBStudy;
     private static ArrayList<Servicio> listDataBVideo;
@@ -28,6 +36,7 @@ public class DataBase {
     private String computador = "Computador";
 
     public DataBase() {
+        mDatabase = FirebaseDatabase.getInstance().getReference();
         setBComputerData();
         setBStudyData();
         setBVideoData();
@@ -53,13 +62,32 @@ public class DataBase {
     private void setBComputerData() {
 
         listDataBComputer = new ArrayList<>();
-        for (int i = 0; i < 40; i += 5) {
+        mDatabase.child("COMPUTER").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                GenericTypeIndicator<List<Servicio>> genericTypeIndicator =new GenericTypeIndicator<List<Servicio>>(){};
+                List<Servicio> computerList = dataSnapshot.getValue(genericTypeIndicator);
+
+                for(int i = 0; i < computerList.size(); i++){
+                    listDataBComputer.add(computerList.get(i));
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+       /* for (int i = 0; i < 40; i += 5) {
             listDataBComputer.add(new Servicio(computador, 1 + i, true, false));
             listDataBComputer.add(new Servicio(computador, 2 + i, true, false));
             listDataBComputer.add(new Servicio(computador, 3 + i, false, false));
             listDataBComputer.add(new Servicio(computador, 4 + i, false, false));
             listDataBComputer.add(new Servicio(computador, 5 + i, true, false));
         }
+        */
     }
 
     /**
