@@ -15,8 +15,6 @@ public class Subject implements Comparable<Subject> {
      * 16:50, 7 de 17:00 a 18:30, 8 de 18:40 a 20:10, 9 de 20:20 a 21:50.
      */
     private String name;
-
-
     private String classRoom;
     private int time;
 

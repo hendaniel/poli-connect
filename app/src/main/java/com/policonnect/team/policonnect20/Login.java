@@ -3,6 +3,7 @@ package com.policonnect.team.policonnect20;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -10,6 +11,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.policonnect.team.policonnect20.MainActivityFragments.MainActivity;
 
 /**
@@ -25,6 +32,10 @@ public class Login extends AppCompatActivity {
     private EditText mPassword;
     private ProgressDialog loadingBar;
     private static final String TAG = "Login";
+    private static boolean is = false;
+    private FirebaseAuth mAuth;
+    private DatabaseReference logRef;
+    private FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +97,23 @@ public class Login extends AppCompatActivity {
      * @return si los datos son correctos o no
      **/
     private boolean confirmData(String dataUser, String dataPass) {
-        return dataUser.equals("aaa") && dataPass.equals("aaa");
+        // return dataUser.equals("aaa") && dataPass.equals("aaa");
+        mAuth.signInWithEmailAndPassword(dataUser, dataPass)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "signInWithEmail:success");
+                            user = mAuth.getCurrentUser();
+                            is = true;
+                        } else {
+                            Log.w(TAG, "signInWithEmail:failure", task.getException());
+                            Toast.makeText(Login.this, "Usuario o contraseña incorrecta.",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+        return is;
     }
 
 
