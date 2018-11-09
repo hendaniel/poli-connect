@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "660676914679",
+    "firebase_url": "https://policonnect-bd271.firebaseio.com",
+    "project_id": "policonnect-bd271",
+    "storage_bucket": "policonnect-bd271.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:660676914679:android:83d6ed5ce44ab340",
+        "android_client_info": {
+          "package_name": "com.policonnect.team.policonnect20"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "660676914679-577r2ig0a8l4ss0leupb45gi6sd1ikmk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.policonnect.team.policonnect20",
+            "certificate_hash": "c10cc62c968973a18c78f9ee935be805e4ef967a"
+          }
+        },
+        {
+          "client_id": "660676914679-vdf5uhrd3ietukqvkrrc5e0d0t5nvnt0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.policonnect.team.policonnect20",
+            "certificate_hash": "62159efa5d08b8bd7bb628e2005d9c9770e4132e"
+          }
+        },
+        {
+          "client_id": "660676914679-lrpknh6dbiv6latastbkef0i5ciusqct.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_CgIF4i6QNHx2QjQOgZKf6-zM8p5TKpw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "660676914679-lrpknh6dbiv6latastbkef0i5ciusqct.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
