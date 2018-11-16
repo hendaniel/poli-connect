@@ -13,6 +13,15 @@
         android:layout_height="wrap_content" />
 
     <TextView
+        android:id="@+id/subjectClassRoom"
+        android:textSize="16dip"
+        android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
         android:id="@+id/subjectHour"
         android:textSize="16dip"
         android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft"

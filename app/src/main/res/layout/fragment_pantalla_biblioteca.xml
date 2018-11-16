@@ -88,7 +88,7 @@
         app:layout_constraintTop_toBottomOf="@+id/videoButton" />
 
     <ImageView
-        android:id="@+id/capacityLibrary"
+        android:id="@+id/capacityComputer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -141,9 +141,9 @@
         android:textColor="@color/black"
         android:textSize="35sp"
         android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="@+id/capacityLibrary"
+        app:layout_constraintBottom_toBottomOf="@+id/capacityComputer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/capacityLibrary" />
+        app:layout_constraintTop_toTopOf="@+id/capacityComputer" />
 
     <TextView
         android:id="@+id/numberCapacityStudy"

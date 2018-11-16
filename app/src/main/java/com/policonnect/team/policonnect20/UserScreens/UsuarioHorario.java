@@ -23,7 +23,6 @@ import java.util.ArrayList;
  * @author: PoliConnect Team
  */
 public class UsuarioHorario extends Activity {
-
     private ImageButton mBackButton;
     private TextView mTitle;
     private ExpandableListView mListView;
@@ -54,8 +53,6 @@ public class UsuarioHorario extends Activity {
         mListView.setAdapter(mListAdapter);
 
     }
-
-
 
     /**
      * Este método agrega a todos los servicios a un Array List para que sea mostrado en el Recycle

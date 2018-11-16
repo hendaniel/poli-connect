@@ -74,7 +74,7 @@ public class Login extends AppCompatActivity {
             return;
         }
         loadingBar.setTitle(R.string.progressdialog_loggin);
-        loadingBar.setMessage("Por favor espere");
+        loadingBar.setMessage(getString(R.string.progressdialog_pleasewait));
         loadingBar.show();
         if (confirmData(dataUser, dataPass)) {
             loadingBar.cancel();
@@ -97,7 +97,7 @@ public class Login extends AppCompatActivity {
      * @return si los datos son correctos o no
      **/
     private boolean confirmData(String dataUser, String dataPass) {
-       // return dataUser.equals("aaa") && dataPass.equals("aaa");
+        // return dataUser.equals("aaa") && dataPass.equals("aaa");
         mAuth.signInWithEmailAndPassword(dataUser, dataPass)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override

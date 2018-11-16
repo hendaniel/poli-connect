@@ -69,7 +69,9 @@ public class ListaDeMaterias extends BaseExpandableListAdapter {
             LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.item_usuario_schedule_group, null);
         }
+
         TextView dayOfTheWeek = view.findViewById(R.id.dayOfTheWeek);
+
         dayOfTheWeek.setText(daysNames[dayOfWeek]);
         return view;
     }
@@ -77,14 +79,19 @@ public class ListaDeMaterias extends BaseExpandableListAdapter {
     @Override
     public View getChildView(int dayOfWeek, int index, boolean isLastChild, View view, ViewGroup parent) {
         final String subjectName = listData[dayOfWeek].get(index).getName();
+        final String subjectClassRoom = listData[dayOfWeek].get(index).getClassRoom();
+
         if (view == null) {
             LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.item_usuario_schedule_child, null);
         }
 
         TextView mSubjectName = view.findViewById(R.id.subjectName);
-        mSubjectName.setText(subjectName);
+        TextView mSubjectClassRoom = view.findViewById(R.id.subjectClassRoom);
         TextView mSubjectHour = view.findViewById(R.id.subjectHour);
+
+        mSubjectName.setText(subjectName);
+        mSubjectClassRoom.setText(subjectClassRoom);
         mSubjectHour.setText(hourStrings[listData[dayOfWeek].get(index).getTime()]);
         return view;
     }
