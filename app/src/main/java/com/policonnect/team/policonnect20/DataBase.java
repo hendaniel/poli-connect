@@ -1,11 +1,19 @@
 package com.policonnect.team.policonnect20;
 
+import com.policonnect.team.policonnect20.Objects.DataBienestar;
 import com.policonnect.team.policonnect20.Objects.Notas;
 import com.policonnect.team.policonnect20.Objects.Servicio;
 import com.policonnect.team.policonnect20.Objects.Subject;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * Esta clase maneja el almacenamiento de cada uno de los datos que el usuario tiene permitido ver.
@@ -15,39 +23,26 @@ import java.util.Collections;
  * @author: PoliConnect Team
  */
 public class DataBase {
+    private DatabaseReference mDatabase;
+
+    private static ArrayList<Notas> listDataUGrades;
+    private static ArrayList<Subject>[] listDataUSchedule;
+    private static String studentName;
+    private static String studentCode;
 
     private static ArrayList<Servicio> listDataBComputer;
     private static ArrayList<Servicio> listDataBStudy;
     private static ArrayList<Servicio> listDataBVideo;
-    private static ArrayList<Notas> listDataUGrades;
-    private static ArrayList<Subject>[] listDataUSchedule;
-
     private static int availableComputer;
     private static int availableStudy;
     private static int availableVideo;
 
-    private static String studentName;
-    private static String studentCode;
+    private static DataBienestar[] welfareData;
 
     private static DataBase dataBase;
 
     private String cubiculo = "Cubículo";
     private String computador = "Computador";
-
-
-    public DataBase() {
-        setStudentData();
-        setBComputerData();
-        setBStudyData();
-        setBVideoData();
-    }
-
-    private void setStudentData() {
-        studentName = "Alejandro Arévalo";
-        studentCode = "1520010666";
-        setUGradesData();
-        setUScheduleData();
-    }
 
     /**
      * Crea la base de datos
@@ -61,19 +56,102 @@ public class DataBase {
         return dataBase;
     }
 
+    public DataBase() {
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        setStudentData();
+        setLibraryData();
+        setWelfareData();
+
+    }
+
+    private void setWelfareData() {
+        welfareData = new DataBienestar[6];
+
+        //código 0 Ping Pong
+        welfareData[0] = new DataBienestar("Ping Pong", "Juan Pablo López", "Mesas de Ping Pong");
+        welfareData[0].addTimeToDay(1, 1);
+        welfareData[0].addTimeToDay(2, 2);
+        welfareData[0].addTimeToDay(3, 2);
+        welfareData[0].addTimeToDay(3, 4);
+
+        //código 1 Rumba Aeróbica
+        welfareData[1] = new DataBienestar("Rumba Aeróbica", "Mariantonieta de las Nieves", "Salón de Danza");
+        welfareData[1].addTimeToDay(5, 4);
+        welfareData[1].addTimeToDay(6, 5);
+        welfareData[1].addTimeToDay(5, 5);
+
+        //código 2 Guitarra Eléctrica
+        welfareData[2] = new DataBienestar("Guitarra Eléctrica", "Pepito Pérez", "Salón de Música");
+        welfareData[2].addTimeToDay(4, 2);
+        welfareData[2].addTimeToDay(5, 2);
+        welfareData[2].addTimeToDay(6, 2);
+
+        //código 3 Guitarra Acústica
+        welfareData[3] = new DataBienestar("Guitarra Acústica", "Alberto Echeverry", "Salón de Música");
+        welfareData[3].addTimeToDay(2, 4);
+        welfareData[3].addTimeToDay(3, 4);
+        welfareData[3].addTimeToDay(4, 4);
+        welfareData[3].addTimeToDay(5, 4);
+        /*
+        //código 4 Gimnasio
+        welfareData[4] = new DataBienestar("Gimaniso", "Pedro Fontalvo y Mariana Guerrero", "Gimnasio");
+        for (int i = 0; i < 6; i++)
+            for (int j = 1; i < 10; j++)
+                welfareData[4].addTimeToDay(j, i);
+                */
+
+
+        //código 5 Pintura
+        welfareData[5] = new DataBienestar("Taller de Pintura", "Leonardo Da Vinci", "Salón de artes");
+        welfareData[3].addTimeToDay(2, 5);
+        welfareData[3].addTimeToDay(3, 5);
+        welfareData[3].addTimeToDay(4, 5);
+        welfareData[3].addTimeToDay(5, 5);
+        welfareData[3].addTimeToDay(2, 0);
+        welfareData[3].addTimeToDay(3, 0);
+        welfareData[3].addTimeToDay(4, 0);
+        welfareData[3].addTimeToDay(5, 0);
+        welfareData[3].addTimeToDay(6, 0);
+        welfareData[3].addTimeToDay(7, 0);
+        welfareData[3].addTimeToDay(8, 0);
+        welfareData[3].addTimeToDay(9, 0);
+    }
+
+    private void setLibraryData() {
+        setBComputerData();
+        setBStudyData();
+        setBVideoData();
+    }
+
+    private void setStudentData() {
+        studentName = "Alejandro Arévalo";
+        studentCode = "1520010666";
+        setUGradesData();
+        setUScheduleData();
+    }
+
+
     /**
      * @return Los datos correspondientes a los computadores disponibles.
      */
     private void setBComputerData() {
 
         listDataBComputer = new ArrayList<>();
-        for (int i = 0; i < 40; i += 5) {
-            listDataBComputer.add(new Servicio(computador, 1 + i, true, false));
-            listDataBComputer.add(new Servicio(computador, 2 + i, true, false));
-            listDataBComputer.add(new Servicio(computador, 3 + i, false, false));
-            listDataBComputer.add(new Servicio(computador, 4 + i, false, false));
-            listDataBComputer.add(new Servicio(computador, 5 + i, true, false));
-        }
+        mDatabase.child("COMPUTER").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Servicio service = snapshot.getValue(Servicio.class);
+                    listDataBComputer.add(service);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         setAvailableComputer();
     }
@@ -83,22 +161,21 @@ public class DataBase {
      */
     private void setBStudyData() {
         listDataBStudy = new ArrayList<>();
-        listDataBStudy.add(new Servicio(cubiculo, 1, true, true));
-        listDataBStudy.add(new Servicio(cubiculo, 2, true, true));
-        listDataBStudy.add(new Servicio(cubiculo, 3, false, true));
-        listDataBStudy.add(new Servicio(cubiculo, 4, true, true));
-        listDataBStudy.add(new Servicio(cubiculo, 5, true, true));
-        listDataBStudy.add(new Servicio(cubiculo, 6, false, true));
-        listDataBStudy.add(new Servicio(cubiculo, 7, true, true));
-        listDataBStudy.add(new Servicio(cubiculo, 8, false, false));
-        listDataBStudy.add(new Servicio(cubiculo, 9, false, false));
-        listDataBStudy.add(new Servicio(cubiculo, 10, false, true));
-        listDataBStudy.add(new Servicio(cubiculo, 11, true, false));
-        listDataBStudy.add(new Servicio(cubiculo, 12, true, false));
-        listDataBStudy.add(new Servicio(cubiculo, 13, false, true));
-        listDataBStudy.add(new Servicio(cubiculo, 14, false, false));
-        listDataBStudy.add(new Servicio(cubiculo, 15, true, false));
-        listDataBStudy.add(new Servicio(cubiculo, 16, true, true));
+        mDatabase.child("CUBICLE").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Servicio service = snapshot.getValue(Servicio.class);
+                    listDataBStudy.add(service);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         setAvailableStudy();
     }
@@ -108,11 +185,22 @@ public class DataBase {
      */
     private void setBVideoData() {
         listDataBVideo = new ArrayList<>();
-        listDataBVideo.add(new Servicio(cubiculo, 1, true, true));
-        listDataBVideo.add(new Servicio(cubiculo, 2, true, false));
-        listDataBVideo.add(new Servicio(cubiculo, 3, false, false));
-        listDataBVideo.add(new Servicio(cubiculo, 4, false, false));
-        listDataBVideo.add(new Servicio(cubiculo, 5, true, false));
+
+        mDatabase.child("VIDEO").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Servicio service = snapshot.getValue(Servicio.class);
+                    listDataBVideo.add(service);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         setAvailableVideo();
     }
@@ -182,6 +270,22 @@ public class DataBase {
                 availableVideo++;
     }
 
+    public static ArrayList<Notas> getListDataUGrades() {
+        return listDataUGrades;
+    }
+
+    public static ArrayList<Subject>[] getListDataUSchedule() {
+        return listDataUSchedule;
+    }
+
+    public static String getStudentName() {
+        return studentName;
+    }
+
+    public static String getStudentCode() {
+        return studentCode;
+    }
+
     public static ArrayList<Servicio> getListDataBComputer() {
         return listDataBComputer;
     }
@@ -192,14 +296,6 @@ public class DataBase {
 
     public static ArrayList<Servicio> getListDataBVideo() {
         return listDataBVideo;
-    }
-
-    public static ArrayList<Notas> getListDataUGrades() {
-        return listDataUGrades;
-    }
-
-    public static ArrayList<Subject>[] getListDataUSchedule() {
-        return listDataUSchedule;
     }
 
     public static String getAvailableComputerString() {
@@ -214,11 +310,8 @@ public class DataBase {
         return Integer.toString(availableVideo);
     }
 
-    public static String getStudentName() {
-        return studentName;
+    public static DataBienestar getWelfareActivity(int code) {
+        return welfareData[code];
     }
 
-    public static String getStudentCode() {
-        return studentCode;
-    }
 }
