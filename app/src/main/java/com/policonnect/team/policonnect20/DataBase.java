@@ -141,13 +141,9 @@ public class DataBase {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-
-                GenericTypeIndicator<List<Servicio>> genericTypeIndicator = new GenericTypeIndicator<List<Servicio>>() {
-                };
-                List<Servicio> computerList = dataSnapshot.getValue(genericTypeIndicator);
-
-                for (int i = 0; i < computerList.size(); i++) {
-                    listDataBComputer.add(computerList.get(i));
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Servicio service = snapshot.getValue(Servicio.class);
+                    listDataBComputer.add(service);
                 }
             }
 
@@ -156,14 +152,8 @@ public class DataBase {
 
             }
         });
-       /* for (int i = 0; i < 40; i += 5) {
-            listDataBComputer.add(new Servicio(computador, 1 + i, true, false));
-            listDataBComputer.add(new Servicio(computador, 2 + i, true, false));
-            listDataBComputer.add(new Servicio(computador, 3 + i, false, false));
-            listDataBComputer.add(new Servicio(computador, 4 + i, false, false));
-            listDataBComputer.add(new Servicio(computador, 5 + i, true, false));
-        }
-        */
+
+        setAvailableComputer();
     }
 
     /**
@@ -171,22 +161,21 @@ public class DataBase {
      */
     private void setBStudyData() {
         listDataBStudy = new ArrayList<>();
-        listDataBStudy.add(new Servicio(cubiculo, 1, true, true));
-        listDataBStudy.add(new Servicio(cubiculo, 2, true, true));
-        listDataBStudy.add(new Servicio(cubiculo, 3, false, true));
-        listDataBStudy.add(new Servicio(cubiculo, 4, true, true));
-        listDataBStudy.add(new Servicio(cubiculo, 5, true, true));
-        listDataBStudy.add(new Servicio(cubiculo, 6, false, true));
-        listDataBStudy.add(new Servicio(cubiculo, 7, true, true));
-        listDataBStudy.add(new Servicio(cubiculo, 8, false, false));
-        listDataBStudy.add(new Servicio(cubiculo, 9, false, false));
-        listDataBStudy.add(new Servicio(cubiculo, 10, false, true));
-        listDataBStudy.add(new Servicio(cubiculo, 11, true, false));
-        listDataBStudy.add(new Servicio(cubiculo, 12, true, false));
-        listDataBStudy.add(new Servicio(cubiculo, 13, false, true));
-        listDataBStudy.add(new Servicio(cubiculo, 14, false, false));
-        listDataBStudy.add(new Servicio(cubiculo, 15, true, false));
-        listDataBStudy.add(new Servicio(cubiculo, 16, true, true));
+        mDatabase.child("CUBICLE").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Servicio service = snapshot.getValue(Servicio.class);
+                    listDataBStudy.add(service);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         setAvailableStudy();
     }
@@ -196,11 +185,22 @@ public class DataBase {
      */
     private void setBVideoData() {
         listDataBVideo = new ArrayList<>();
-        listDataBVideo.add(new Servicio(cubiculo, 1, true, true));
-        listDataBVideo.add(new Servicio(cubiculo, 2, true, false));
-        listDataBVideo.add(new Servicio(cubiculo, 3, false, false));
-        listDataBVideo.add(new Servicio(cubiculo, 4, false, false));
-        listDataBVideo.add(new Servicio(cubiculo, 5, true, false));
+
+        mDatabase.child("VIDEO").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Servicio service = snapshot.getValue(Servicio.class);
+                    listDataBVideo.add(service);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         setAvailableVideo();
     }

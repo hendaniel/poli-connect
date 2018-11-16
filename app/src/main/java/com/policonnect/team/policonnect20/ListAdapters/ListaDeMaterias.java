@@ -25,7 +25,7 @@ public class ListaDeMaterias extends BaseExpandableListAdapter {
 
     public ListaDeMaterias(Context context, ArrayList<Subject>[] listData) {
         this.context = context;
-        this.listData = listData;
+        ListaDeMaterias.listData = listData;
     }
 
     @Override

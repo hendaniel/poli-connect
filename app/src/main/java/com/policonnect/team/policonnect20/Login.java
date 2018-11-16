@@ -41,7 +41,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        mAuth = FirebaseAuth.getInstance();
         mLogInButton = findViewById(R.id.loginButton);
         mUser = findViewById(R.id.loginName);
         mPassword = findViewById(R.id.loginPass);
@@ -63,12 +63,12 @@ public class Login extends AppCompatActivity {
      * y cierra la actual, si no, se muestra un Toast dependiendo de lo que esté incorrecto.
      **/
     private void tryToLogIn() {
-        String dataUser = mUser.getText().toString();
+        String dataUser = mUser.getText().toString().trim();
         if (dataUser.isEmpty()) {
             Toast.makeText(Login.this, R.string.toast_nouser, Toast.LENGTH_SHORT).show();
             return;
         }
-        String dataPass = mPassword.getText().toString();
+        String dataPass = mPassword.getText().toString().trim();
         if (dataPass.isEmpty()) {
             Toast.makeText(Login.this, R.string.toast_nopass, Toast.LENGTH_SHORT).show();
             return;
@@ -76,15 +76,9 @@ public class Login extends AppCompatActivity {
         loadingBar.setTitle(R.string.progressdialog_loggin);
         loadingBar.setMessage(getString(R.string.progressdialog_pleasewait));
         loadingBar.show();
-        if (confirmData(dataUser, dataPass)) {
-            loadingBar.cancel();
-            Intent i = new Intent(Login.this, MainActivity.class);
-            startActivity(i);
-            finish();
-            return;
-        }
-        loadingBar.cancel();
-        Toast.makeText(this, R.string.toast_nocoincidence, Toast.LENGTH_SHORT).show();
+        confirmData(dataUser, dataPass);
+
+
 
     }
 
@@ -96,7 +90,7 @@ public class Login extends AppCompatActivity {
      * @param dataPass texto ingresado en el campo de 'contraseña'
      * @return si los datos son correctos o no
      **/
-    private boolean confirmData(String dataUser, String dataPass) {
+    private void confirmData(String dataUser, String dataPass) {
         // return dataUser.equals("aaa") && dataPass.equals("aaa");
         mAuth.signInWithEmailAndPassword(dataUser, dataPass)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -105,15 +99,18 @@ public class Login extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Log.d(TAG, "signInWithEmail:success");
                             user = mAuth.getCurrentUser();
-                            is = true;
+                            loadingBar.cancel();
+                            Intent i = new Intent(Login.this, MainActivity.class);
+                            startActivity(i);
+                            finish();
                         } else {
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
+                            loadingBar.cancel();
                             Toast.makeText(Login.this, "Usuario o contraseña incorrecta.",
                                     Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
-        return is;
     }
 
 
