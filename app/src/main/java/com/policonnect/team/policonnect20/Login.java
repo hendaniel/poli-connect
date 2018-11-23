@@ -32,10 +32,8 @@ public class Login extends AppCompatActivity {
     private EditText mPassword;
     private ProgressDialog loadingBar;
     private static final String TAG = "Login";
-    private static boolean is = false;
     private FirebaseAuth mAuth;
-    private DatabaseReference logRef;
-    private FirebaseUser user;
+    public static FirebaseUser userData;
     private final String dominio = "@poligran.edu.co";
 
     @Override
@@ -99,7 +97,7 @@ public class Login extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Log.d(TAG, "signInWithEmail:success");
-                            user = mAuth.getCurrentUser();
+                            userData = mAuth.getCurrentUser();
                             loadingBar.cancel();
                             Intent i = new Intent(Login.this, MainActivity.class);
                             startActivity(i);

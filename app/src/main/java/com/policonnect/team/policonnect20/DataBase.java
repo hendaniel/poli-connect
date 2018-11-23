@@ -1,5 +1,6 @@
 package com.policonnect.team.policonnect20;
 
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -9,6 +10,7 @@ import com.policonnect.team.policonnect20.LibraryScreens.BibliotecaComputers;
 import com.policonnect.team.policonnect20.LibraryScreens.BibliotecaStudy;
 import com.policonnect.team.policonnect20.LibraryScreens.BibliotecaVideo;
 import com.policonnect.team.policonnect20.MainActivityFragments.PantallaBiblioteca;
+import com.policonnect.team.policonnect20.MainActivityFragments.PantallaUsuario;
 import com.policonnect.team.policonnect20.Objects.DataBienestar;
 import com.policonnect.team.policonnect20.Objects.Notas;
 import com.policonnect.team.policonnect20.Objects.Servicio;
@@ -17,6 +19,7 @@ import com.policonnect.team.policonnect20.Objects.Subject;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.StringTokenizer;
 
 /**
  * Esta clase maneja el almacenamiento de cada uno de los datos que el usuario tiene permitido ver.
@@ -39,8 +42,11 @@ public class DataBase {
     private static int availableComputer;
     private static int availableStudy;
     private static int availableVideo;
+    private static FirebaseUser userDB;
 
     private static DataBienestar[] welfareData;
+
+    private static final String TAG = "DataBase";
 
     private static DataBase dataBase;
 
@@ -49,8 +55,9 @@ public class DataBase {
      *
      * @return La base de datos
      */
-    public static DataBase enableDataBase() {
+    public static DataBase enableDataBase(FirebaseUser user) {
         if (dataBase == null) {
+            userDB = user;
             dataBase = new DataBase();
         }
         return dataBase;
@@ -124,8 +131,24 @@ public class DataBase {
     }
 
     private void setStudentData() {
-        studentName = "Alejandro Arévalo";
-        studentCode = "1520010666";
+
+        mDatabase.child("USER").child(userDB.getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                StringTokenizer st = new StringTokenizer(dataSnapshot.child("U_Name").getValue().toString());
+                studentName = st.nextToken() + " ";
+                st = new StringTokenizer(dataSnapshot.child("U_LName").getValue().toString());
+                studentName+=st.nextToken();
+                studentCode=dataSnapshot.child("U_Code").getValue().toString();
+                PantallaUsuario.setUserData();
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
         setUGradesData();
         setUScheduleData();
     }

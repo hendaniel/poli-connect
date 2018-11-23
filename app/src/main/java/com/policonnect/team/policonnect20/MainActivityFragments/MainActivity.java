@@ -16,7 +16,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseUser;
 import com.policonnect.team.policonnect20.DataBase;
+import com.policonnect.team.policonnect20.Login;
 import com.policonnect.team.policonnect20.R;
 
 /**
@@ -31,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton[] menu;
     private Bitmap[] images;
     private final int mNumberOfFragment = 3;
-
 
     private ProgressDialog loadingBar;
     public DataBase database;
@@ -88,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         loadingBar.setTitle(R.string.progressdialog_gettingdb);
         loadingBar.setMessage(getString(R.string.progressdialog_pleasewait));
         loadingBar.show();
-        DataBase.enableDataBase();
+        DataBase.enableDataBase(Login.userData);
         loadingBar.cancel();
     }
 

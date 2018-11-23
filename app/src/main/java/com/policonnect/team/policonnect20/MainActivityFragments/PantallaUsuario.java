@@ -16,8 +16,6 @@ import com.policonnect.team.policonnect20.R;
 import com.policonnect.team.policonnect20.UserScreens.UsuarioHorario;
 import com.policonnect.team.policonnect20.UserScreens.UsuarioNotas;
 
-import org.w3c.dom.Text;
-
 /**
  * @version 1
  * @author: PoliConnect Team
@@ -26,8 +24,8 @@ public class PantallaUsuario extends Fragment {
 
     private ImageButton mGrades;
     private ImageButton mSchedule;
-    private TextView mUsername;
-    private TextView mCodeUser;
+    private static TextView mUsername;
+    private static TextView mUserCode;
 
 
     @Nullable
@@ -38,17 +36,21 @@ public class PantallaUsuario extends Fragment {
         setViews(view);
         setButtonsListeners();
 
-        mUsername.setText(DataBase.getStudentName());
-        mCodeUser.setText(DataBase.getStudentCode());
-
+        setUserData();
         return view;
     }
+
+    public  static  void setUserData(){
+        mUsername.setText(DataBase.getStudentName());
+        mUserCode.setText(DataBase.getStudentCode());
+    }
+
 
     private void setViews(View view) {
         mGrades = view.findViewById(R.id.noteButton);
         mSchedule = view.findViewById(R.id.scheduleButton);
         mUsername = view.findViewById(R.id.username);
-        mCodeUser = view.findViewById(R.id.codeUser);
+        mUserCode = view.findViewById(R.id.codeUser);
     }
 
     private void setButtonsListeners() {
