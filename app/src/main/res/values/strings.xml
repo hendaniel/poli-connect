@@ -20,7 +20,10 @@
 
     <!-- Pantalla Usuario -->
     <string name="horario">Horario</string>
-
+    <string name="messageDialog">¿Esta seguro de que desea cerrar sesion?</string>
+    <string name="titleDialog">Cerrar Sesion</string>
+    <string name="positiveDialog">Estoy Seguro</string>
+    <string name="negativeDialog">Cancelar</string>
     <string name="notas">Notas</string>
     <string name="nota">Nota</string>
     <string name="aprobado">Aprobado</string>
