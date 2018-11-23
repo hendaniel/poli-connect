@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.policonnect.team.policonnect20.DataBase;
 import com.policonnect.team.policonnect20.ListAdapters.ListaDeNotas;
+import com.policonnect.team.policonnect20.ListAdapters.ListaDeServicios;
 import com.policonnect.team.policonnect20.Objects.Notas;
 import com.policonnect.team.policonnect20.R;
 
@@ -27,8 +28,8 @@ import java.util.Comparator;
  */
 public class UsuarioNotas extends Activity {
 
-    private ArrayList<Notas> listDatos;
-    private RecyclerView mRecycle;
+    private static ArrayList<Notas> listDatos;
+    private static RecyclerView mRecycle;
     private ImageButton mBackButton;
     private TextView mTitle;
     private boolean orderedByDisponibility;
@@ -56,8 +57,7 @@ public class UsuarioNotas extends Activity {
         });
 
         mRecycle.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        ListaDeNotas adapter = new ListaDeNotas(listDatos);
-        mRecycle.setAdapter(adapter);
+        setView();
     }
 
     /**
@@ -82,4 +82,9 @@ public class UsuarioNotas extends Activity {
         listDatos = DataBase.getListDataUGrades();
     }
 
+    public static void setView() {
+        ListaDeNotas adapter = new ListaDeNotas(listDatos);
+        if (mRecycle != null)
+            mRecycle.setAdapter(adapter);
+    }
 }

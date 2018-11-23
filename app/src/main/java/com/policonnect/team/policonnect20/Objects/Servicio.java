@@ -14,13 +14,10 @@ public class Servicio {
      * @param idServicio Identifica que servicio es el que está en el objeto 1 Cubículos de estudio,
      * 2 Computadores y 3 Cubiculos de video
      */
-    private int idServicio;
     private String name;
     private int number;
     private boolean occupied;
     private boolean group;
-    private int piso;
-
 
     public Servicio(String name, int number, boolean occupied, boolean group) {
         this.name = name;

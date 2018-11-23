@@ -25,8 +25,8 @@ import java.util.ArrayList;
 public class UsuarioHorario extends Activity {
     private ImageButton mBackButton;
     private TextView mTitle;
-    private ExpandableListView mListView;
-    private ListaDeMaterias mListAdapter;
+    private static ExpandableListView mListView;
+    private static ListaDeMaterias mListAdapter;
     private static ArrayList<Subject>[] listDatos;
 
     @Override
@@ -49,8 +49,9 @@ public class UsuarioHorario extends Activity {
         });
 
         mListView = findViewById(R.id.ScheduleList);
-        mListAdapter = new ListaDeMaterias(this,listDatos);
-        mListView.setAdapter(mListAdapter);
+        mListAdapter = new ListaDeMaterias(this ,listDatos);
+        setView();
+
 
     }
 
@@ -60,6 +61,11 @@ public class UsuarioHorario extends Activity {
      */
     private void setHorario() {
         listDatos = DataBase.getListDataUSchedule();
+    }
+
+    public static void setView() {
+        if(mListView!=null)
+        mListView.setAdapter(mListAdapter);
     }
 
 }

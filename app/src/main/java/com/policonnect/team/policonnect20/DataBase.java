@@ -1,5 +1,7 @@
 package com.policonnect.team.policonnect20;
 
+import android.util.Log;
+
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -15,6 +17,8 @@ import com.policonnect.team.policonnect20.Objects.DataBienestar;
 import com.policonnect.team.policonnect20.Objects.Notas;
 import com.policonnect.team.policonnect20.Objects.Servicio;
 import com.policonnect.team.policonnect20.Objects.Subject;
+import com.policonnect.team.policonnect20.UserScreens.UsuarioHorario;
+import com.policonnect.team.policonnect20.UserScreens.UsuarioNotas;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -131,28 +135,10 @@ public class DataBase {
     }
 
     private void setStudentData() {
-
-        mDatabase.child("USER").child(userDB.getUid()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                StringTokenizer st = new StringTokenizer(dataSnapshot.child("U_Name").getValue().toString());
-                studentName = st.nextToken() + " ";
-                st = new StringTokenizer(dataSnapshot.child("U_LName").getValue().toString());
-                studentName+=st.nextToken();
-                studentCode=dataSnapshot.child("U_Code").getValue().toString();
-                PantallaUsuario.setUserData();
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
+        setUserData();
         setUGradesData();
         setUScheduleData();
     }
-
 
     /**
      * @return Los datos correspondientes a los computadores disponibles.
@@ -239,47 +225,89 @@ public class DataBase {
     }
 
     /**
+     * @return Los datos correspondientes al nombre, apellido y código.
+     */
+    private void setUserData() {
+        mDatabase.child("USER").child(userDB.getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                StringTokenizer st = new StringTokenizer(dataSnapshot.child("U_Name").getValue().toString());
+                studentName = st.nextToken() + " ";
+                st = new StringTokenizer(dataSnapshot.child("U_LName").getValue().toString());
+                studentName+=st.nextToken();
+                studentCode=dataSnapshot.child("U_Code").getValue().toString();
+                PantallaUsuario.setUserData();
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    /**
      * @return Los datos correspondientes a las notas del usuario.
      */
     private void setUGradesData() {
         listDataUGrades = new ArrayList<>();
-        listDataUGrades.add(new Notas("Matemática", 4.8, 161));
-        listDataUGrades.add(new Notas("Algebra", 3.0, 162));
-        listDataUGrades.add(new Notas("Publicidad", 2.98, 181));
-        listDataUGrades.add(new Notas("Introducción a la Ingeniería", 3.0, 181));
-        listDataUGrades.add(new Notas("Francés I", 2.98, 181));
-        listDataUGrades.add(new Notas("Probabilidad", 3.0, 181));
-        listDataUGrades.add(new Notas("Estructura de Datos", 2.98, 181));
-        listDataUGrades.add(new Notas("Física I", 3.0, 181));
-        listDataUGrades.add(new Notas("Cálculo I", 4.98, 162));
-        listDataUGrades.add(new Notas("Cálculo II", 3.0, 171));
-        listDataUGrades.add(new Notas("Cálculo III", 2.98, 172));
-        listDataUGrades.add(new Notas("Bases de Datos", 3.0, 181));
-        listDataUGrades.add(new Notas("Programación de Computadores", 5.0, 162));
-        listDataUGrades.add(new Notas("Lecto-Escritura", 3.0, 181));
+        mDatabase.child("USER").child(userDB.getUid()).child("U_Grades").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                listDataUGrades.clear();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    String materia = snapshot.child("materia").getValue().toString();
+                    double grade = Double.parseDouble(snapshot.child("grade").getValue().toString());
+                    int date = Integer.parseInt(snapshot.child("date").getValue().toString());
+                    Notas nota = new Notas(materia,grade,date);
+                    listDataUGrades.add(nota);
+                }
+                UsuarioNotas.setView();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
+    /**
+     * @return Los datos correspondientes al horario del usuario.
+     */
     private void setUScheduleData() {
         listDataUSchedule = new ArrayList[6];
 
         for (int i = 0; i < listDataUSchedule.length; i++)
             listDataUSchedule[i] = new ArrayList<Subject>();
 
-        listDataUSchedule[1].add(new Subject("Francés I", "H-207", 0));
-        listDataUSchedule[1].add(new Subject("Probabilidad", "K-010", 6));
-        listDataUSchedule[1].add(new Subject("Circuitos Lógicos", "K-008", 4));
-        listDataUSchedule[1].add(new Subject("Circuitos Lógicos", "C-207", 5));
+        mDatabase.child("USER").child(userDB.getUid()).child("U_Schedule").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (int i = 0; i < listDataUSchedule.length; i++)
+                    listDataUSchedule[i].clear();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    StringTokenizer st = new StringTokenizer(snapshot.getValue().toString(),"|");
+                    int weekDay = Integer.parseInt(st.nextToken());
+                    String subject = st.nextToken();
+                    String classRoom = st.nextToken();
+                    int dayBlock = Integer.parseInt(st.nextToken());
+                    listDataUSchedule[weekDay].add(new Subject(subject,classRoom,dayBlock));
+                }
 
-        listDataUSchedule[3].add(new Subject("Francés I", "H-207", 0));
-        listDataUSchedule[3].add(new Subject("Circuitos Lógicos", "C-207", 5));
+                for (int i = 0; i < listDataUSchedule.length; i++)
+                    Collections.sort(listDataUSchedule[i]);
 
-        listDataUSchedule[4].add(new Subject("Probabilidad", "K-010", 3));
+                UsuarioHorario.setView();
+            }
 
-        listDataUSchedule[5].add(new Subject("Práctica Aplicada", "C-201", 3));
-        listDataUSchedule[5].add(new Subject("Práctica Aplicada", "C-201", 4));
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
 
-        for (int i = 0; i < listDataUSchedule.length; i++)
-            Collections.sort(listDataUSchedule[i]);
+            }
+        });
+
+
     }
 
     public void setAvailableComputer() {
