@@ -36,6 +36,7 @@ public class Login extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference logRef;
     private FirebaseUser user;
+    private final String dominio = "@poligran.edu.co";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +80,6 @@ public class Login extends AppCompatActivity {
         confirmData(dataUser, dataPass);
 
 
-
     }
 
 
@@ -92,6 +92,7 @@ public class Login extends AppCompatActivity {
      **/
     private void confirmData(String dataUser, String dataPass) {
         // return dataUser.equals("aaa") && dataPass.equals("aaa");
+        dataUser += dominio;
         mAuth.signInWithEmailAndPassword(dataUser, dataPass)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -106,7 +107,7 @@ public class Login extends AppCompatActivity {
                         } else {
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
                             loadingBar.cancel();
-                            Toast.makeText(Login.this, "Usuario o contraseña incorrecta.",
+                            Toast.makeText(Login.this, R.string.toast_nocoincidence,
                                     Toast.LENGTH_SHORT).show();
                         }
                     }

@@ -1,19 +1,22 @@
 package com.policonnect.team.policonnect20;
 
-import com.policonnect.team.policonnect20.Objects.DataBienestar;
-import com.policonnect.team.policonnect20.Objects.Notas;
-import com.policonnect.team.policonnect20.Objects.Servicio;
-import com.policonnect.team.policonnect20.Objects.Subject;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
+import com.policonnect.team.policonnect20.LibraryScreens.BibliotecaComputers;
+import com.policonnect.team.policonnect20.LibraryScreens.BibliotecaStudy;
+import com.policonnect.team.policonnect20.LibraryScreens.BibliotecaVideo;
+import com.policonnect.team.policonnect20.MainActivityFragments.PantallaBiblioteca;
+import com.policonnect.team.policonnect20.Objects.DataBienestar;
+import com.policonnect.team.policonnect20.Objects.Notas;
+import com.policonnect.team.policonnect20.Objects.Servicio;
+import com.policonnect.team.policonnect20.Objects.Subject;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
+import java.util.Comparator;
 
 /**
  * Esta clase maneja el almacenamiento de cada uno de los datos que el usuario tiene permitido ver.
@@ -40,9 +43,6 @@ public class DataBase {
     private static DataBienestar[] welfareData;
 
     private static DataBase dataBase;
-
-    private String cubiculo = "Cubículo";
-    private String computador = "Computador";
 
     /**
      * Crea la base de datos
@@ -135,16 +135,19 @@ public class DataBase {
      * @return Los datos correspondientes a los computadores disponibles.
      */
     private void setBComputerData() {
-
         listDataBComputer = new ArrayList<>();
         mDatabase.child("COMPUTER").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
+                listDataBComputer.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Servicio service = snapshot.getValue(Servicio.class);
                     listDataBComputer.add(service);
                 }
+                setAvailableComputer();
+                orderLibraryDataByIdNumber(listDataBComputer);
+                PantallaBiblioteca.setAvailablesCounters();
+                BibliotecaComputers.setView();
             }
 
             @Override
@@ -153,7 +156,6 @@ public class DataBase {
             }
         });
 
-        setAvailableComputer();
     }
 
     /**
@@ -164,11 +166,15 @@ public class DataBase {
         mDatabase.child("CUBICLE").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
+                listDataBStudy.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Servicio service = snapshot.getValue(Servicio.class);
                     listDataBStudy.add(service);
                 }
+                setAvailableStudy();
+                orderLibraryDataByIdNumber(listDataBStudy);
+                PantallaBiblioteca.setAvailablesCounters();
+                BibliotecaStudy.setView();
             }
 
             @Override
@@ -189,11 +195,15 @@ public class DataBase {
         mDatabase.child("VIDEO").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
+                listDataBVideo.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Servicio service = snapshot.getValue(Servicio.class);
                     listDataBVideo.add(service);
                 }
+                setAvailableVideo();
+                orderLibraryDataByIdNumber(listDataBVideo);
+                PantallaBiblioteca.setAvailablesCounters();
+                BibliotecaVideo.setView();
             }
 
             @Override
@@ -268,6 +278,16 @@ public class DataBase {
         for (int i = 0; i < listDataBVideo.size(); i++)
             if (!listDataBVideo.get(i).isOccupied())
                 availableVideo++;
+    }
+
+    private void orderLibraryDataByIdNumber(ArrayList<Servicio> list) {
+        Collections.sort(list, new Comparator<Servicio>() {
+            @Override
+            public int compare(Servicio x, Servicio y) {
+                return Integer.compare(x.getNumber(), y.getNumber());
+            }
+
+        });
     }
 
     public static ArrayList<Notas> getListDataUGrades() {

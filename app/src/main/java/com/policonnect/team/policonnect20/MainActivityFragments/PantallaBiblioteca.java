@@ -31,9 +31,9 @@ public class PantallaBiblioteca extends Fragment {
     private ImageButton mStudy;
     private ImageButton mVideo;
     private ImageButton mResource;
-    private TextView mAvailableComputer;
-    private TextView mAvailableStudy;
-    private TextView mAvailableVideo;
+    static private TextView mAvailableComputer;
+    static private TextView mAvailableStudy;
+    static private TextView mAvailableVideo;
 
 
     @Nullable
@@ -48,10 +48,14 @@ public class PantallaBiblioteca extends Fragment {
         return view;
     }
 
-    private void setAvailablesCounters() {
-        mAvailableComputer.setText(DataBase.getAvailableComputerString());
-        mAvailableStudy.setText(DataBase.getAvailableStudyString());
-        mAvailableVideo.setText(DataBase.getAvailableVideoString());
+    public static void setAvailablesCounters() {
+        if(mAvailableComputer!=null)
+            mAvailableComputer.setText(DataBase.getAvailableComputerString());
+        if(mAvailableStudy!=null)
+            mAvailableStudy.setText(DataBase.getAvailableStudyString());
+        if(mAvailableVideo!=null)
+            mAvailableVideo.setText(DataBase.getAvailableVideoString());
+
     }
 
     private void setViews(View view) {

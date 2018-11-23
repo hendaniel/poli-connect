@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 import com.policonnect.team.policonnect20.DataBase;
 import com.policonnect.team.policonnect20.ListAdapters.ListaDeServicios;
-import com.policonnect.team.policonnect20.R;
 import com.policonnect.team.policonnect20.Objects.Servicio;
+import com.policonnect.team.policonnect20.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -27,8 +27,8 @@ import java.util.Comparator;
  */
 public class BibliotecaStudy extends Activity {
 
-    private ArrayList<Servicio> listDatos;
-    private RecyclerView mRecycle;
+    private static ArrayList<Servicio> listDatos;
+    private static RecyclerView mRecycle;
     private ImageButton mBackButton;
     private TextView mTitle;
     private boolean orderedByDisponibility;
@@ -56,8 +56,7 @@ public class BibliotecaStudy extends Activity {
         });
 
         mRecycle.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        ListaDeServicios adapter = new ListaDeServicios(listDatos);
-        mRecycle.setAdapter(adapter);
+        setView();
 
     }
 
@@ -99,7 +98,16 @@ public class BibliotecaStudy extends Activity {
      * View
      */
     private void setCubiculos() {
-        listDatos=DataBase.getListDataBStudy();
+        listDatos = DataBase.getListDataBStudy();
+    }
+
+    /**
+     * Este metodo coloca en pantalla la lista que esta actualmente en el Array List
+     */
+    public static void setView() {
+        ListaDeServicios adapter = new ListaDeServicios(listDatos);
+        if (mRecycle != null)
+            mRecycle.setAdapter(adapter);
     }
 
 }
