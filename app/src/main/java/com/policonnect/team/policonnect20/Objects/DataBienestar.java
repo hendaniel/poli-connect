@@ -1,6 +1,5 @@
 package com.policonnect.team.policonnect20.Objects;
 
-import java.util.ArrayList;
 import java.util.TreeSet;
 
 public class DataBienestar {
@@ -27,7 +26,7 @@ public class DataBienestar {
         return teacher;
     }
 
-    public String getPlace(){
+    public String getPlace() {
         return place;
     }
 

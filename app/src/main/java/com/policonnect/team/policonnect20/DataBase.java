@@ -78,6 +78,32 @@ public class DataBase {
     private void setWelfareData() {
         welfareData = new DataBienestar[6];
 
+        mDatabase.child("WELLNESS").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    int id = Integer.parseInt(snapshot.child("W_ID").getValue().toString());
+                    String name = snapshot.child("W_Name").getValue().toString();
+                    String place = snapshot.child("W_Place").getValue().toString();
+                    String tutor = snapshot.child("W_Tutor").getValue().toString();
+                    welfareData[id] = new DataBienestar(name, tutor, place);
+                    StringTokenizer st1 = new StringTokenizer(snapshot.child("W_Schedule").getValue().toString(), ";");
+                    StringTokenizer st2;
+                    while (st1.hasMoreElements()) {
+                        st2 = new StringTokenizer(st1.nextToken(), ":");
+                        int day = Integer.parseInt(st2.nextToken());
+                        int block = Integer.parseInt(st2.nextToken());
+                        welfareData[id].addTimeToDay(block, day);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+/*
         //código 0 Ping Pong
         welfareData[0] = new DataBienestar("Ping Pong", "Juan Pablo López", "Mesas de Ping Pong");
         welfareData[0].addTimeToDay(1, 1);
@@ -103,6 +129,7 @@ public class DataBase {
         welfareData[3].addTimeToDay(3, 4);
         welfareData[3].addTimeToDay(4, 4);
         welfareData[3].addTimeToDay(5, 4);
+  */
         /*
         //código 4 Gimnasio
         welfareData[4] = new DataBienestar("Gimaniso", "Pedro Fontalvo y Mariana Guerrero", "Gimnasio");
@@ -111,7 +138,7 @@ public class DataBase {
                 welfareData[4].addTimeToDay(j, i);
                 */
 
-
+/*
         //código 5 Pintura
         welfareData[5] = new DataBienestar("Taller de Pintura", "Leonardo Da Vinci", "Salón de artes");
         welfareData[3].addTimeToDay(2, 5);
@@ -126,6 +153,9 @@ public class DataBase {
         welfareData[3].addTimeToDay(7, 0);
         welfareData[3].addTimeToDay(8, 0);
         welfareData[3].addTimeToDay(9, 0);
+*/
+
+
     }
 
     private void setLibraryData() {
@@ -235,10 +265,11 @@ public class DataBase {
                 StringTokenizer st = new StringTokenizer(dataSnapshot.child("U_Name").getValue().toString());
                 studentName = st.nextToken() + " ";
                 st = new StringTokenizer(dataSnapshot.child("U_LName").getValue().toString());
-                studentName+=st.nextToken();
-                studentCode=dataSnapshot.child("U_Code").getValue().toString();
+                studentName += st.nextToken();
+                studentCode = dataSnapshot.child("U_Code").getValue().toString();
                 PantallaUsuario.setUserData();
             }
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
@@ -259,7 +290,7 @@ public class DataBase {
                     String materia = snapshot.child("materia").getValue().toString();
                     double grade = Double.parseDouble(snapshot.child("grade").getValue().toString());
                     int date = Integer.parseInt(snapshot.child("date").getValue().toString());
-                    Notas nota = new Notas(materia,grade,date);
+                    Notas nota = new Notas(materia, grade, date);
                     listDataUGrades.add(nota);
                 }
                 UsuarioNotas.setView();
@@ -287,27 +318,22 @@ public class DataBase {
                 for (int i = 0; i < listDataUSchedule.length; i++)
                     listDataUSchedule[i].clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    StringTokenizer st = new StringTokenizer(snapshot.getValue().toString(),"|");
+                    StringTokenizer st = new StringTokenizer(snapshot.getValue().toString(), "|");
                     int weekDay = Integer.parseInt(st.nextToken());
                     String subject = st.nextToken();
                     String classRoom = st.nextToken();
                     int dayBlock = Integer.parseInt(st.nextToken());
-                    listDataUSchedule[weekDay].add(new Subject(subject,classRoom,dayBlock));
+                    listDataUSchedule[weekDay].add(new Subject(subject, classRoom, dayBlock));
                 }
-
                 for (int i = 0; i < listDataUSchedule.length; i++)
                     Collections.sort(listDataUSchedule[i]);
-
                 UsuarioHorario.setView();
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
             }
         });
-
-
     }
 
     public void setAvailableComputer() {
