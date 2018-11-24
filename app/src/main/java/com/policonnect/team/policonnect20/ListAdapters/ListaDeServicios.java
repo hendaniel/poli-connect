@@ -62,14 +62,19 @@ public class ListaDeServicios extends RecyclerView.Adapter<ListaDeServicios.View
             name = itemView.findViewById(R.id.itemCubName);
             back = itemView.findViewById(R.id.itemBack);
             numb = itemView.findViewById(R.id.itemCubNum);
-            Log.d(TAG, "Puesto");
+            //Log.d(TAG, "Puesto");
         }
 
         public void asignarDatos(Servicio servicio) {
             name.setText(servicio.getName());
             numb.setText(servicio.getNumberString());
 
-            if (servicio.isOccupied() && servicio.isGroup())
+            if (servicio.getIdServicio() == 2)
+                if (servicio.isOccupied())
+                    back.setImageResource(R.drawable.library_pc_unavailable);
+                else
+                    back.setImageResource(R.drawable.library_pc_available);
+            else if (servicio.isOccupied() && servicio.isGroup())
                 back.setImageResource(R.drawable.library_group_unavaliable);
             else if (servicio.isOccupied() && !servicio.isGroup())
                 back.setImageResource(R.drawable.library_one_unavaliable);

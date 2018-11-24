@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.policonnect.team.policonnect20.DataBase;
+import com.policonnect.team.policonnect20.GeneralMethods;
 import com.policonnect.team.policonnect20.Objects.DataBienestar;
 import com.policonnect.team.policonnect20.R;
 
@@ -22,20 +23,21 @@ public class BienestarGym extends Activity {
     private DataBienestar datos;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dummy);
+        setContentView(R.layout.activity_bienestar);
+
         setViews();
 
         datos = DataBase.getWelfareActivity(4);
 
-        mHeaderColor.setColorFilter(R.color.colorGimnasio);
+        mHeaderColor.setImageResource(R.color.colorGimnasio);
         mNameScreen.setText(datos.getName());
         mNameScreen2.setText(datos.getName());
         mPlace.setText(datos.getPlace());
         mProfessor.setText(datos.getTeacher());
+        mSchedule.setText(GeneralMethods.welfareScheduleString(datos.getSchedule()));
 
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override

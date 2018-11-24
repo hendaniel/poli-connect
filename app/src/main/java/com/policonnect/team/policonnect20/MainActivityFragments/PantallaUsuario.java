@@ -15,11 +15,13 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.policonnect.team.policonnect20.DataBase;
+import com.policonnect.team.policonnect20.GeneralMethods;
 import com.policonnect.team.policonnect20.Login;
+import com.policonnect.team.policonnect20.Objects.Subject;
 import com.policonnect.team.policonnect20.R;
+import com.policonnect.team.policonnect20.UserScreens.UserSolicitud;
 import com.policonnect.team.policonnect20.UserScreens.UsuarioHorario;
 import com.policonnect.team.policonnect20.UserScreens.UsuarioNotas;
-
 import static android.content.ContentValues.TAG;
 
 /**
@@ -31,8 +33,14 @@ public class PantallaUsuario extends Fragment {
     private ImageButton mGrades;
     private ImageButton mSchedule;
     private ImageButton mLogOut;
+    private ImageButton mRequestButton;
     private static TextView mUsername;
     private static TextView mUserCode;
+    private static TextView mDateNextClass;
+    private static TextView mClassroomNext;
+    private static TextView mTitle;
+
+    private static final String TAG = "MainActivity";
 
 
     @Nullable
@@ -44,10 +52,24 @@ public class PantallaUsuario extends Fragment {
         setButtonsListeners();
 
         setUserData();
+        setNextClass();
+
         return view;
     }
 
-    public  static  void setUserData(){
+    public static void setNextClass() {
+        Subject nextSubject = GeneralMethods.getNextSubject();
+        Log.d(TAG, "||||||||||||***********|||||||||||  " + nextSubject.getName());
+        int day = nextSubject.getName().charAt(nextSubject.getName().length() - 1) - '0';
+        nextSubject.setName(nextSubject.getName().substring(0, nextSubject.getName().length() - 1));
+        mTitle.setText(nextSubject.getName());
+        mDateNextClass.setText(GeneralMethods.getWeekDayString(day) + " " + GeneralMethods.getBlockHour(nextSubject.getTime()));
+        mClassroomNext.setText(nextSubject.getClassRoom());
+
+
+    }
+
+    public static void setUserData() {
         mUsername.setText(DataBase.getStudentName());
         mUserCode.setText(DataBase.getStudentCode());
     }
@@ -57,8 +79,12 @@ public class PantallaUsuario extends Fragment {
         mLogOut = view.findViewById(R.id.logOutButton);
         mGrades = view.findViewById(R.id.noteButton);
         mSchedule = view.findViewById(R.id.scheduleButton);
+        mRequestButton = view.findViewById(R.id.requestButton);
         mUsername = view.findViewById(R.id.username);
         mUserCode = view.findViewById(R.id.codeUser);
+        mDateNextClass = view.findViewById(R.id.dateNextClass);
+        mClassroomNext = view.findViewById(R.id.classroomNext);
+        mTitle = view.findViewById(R.id.title);
     }
 
     private void setButtonsListeners() {
@@ -73,6 +99,13 @@ public class PantallaUsuario extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), UsuarioHorario.class);
+                startActivity(i);
+            }
+        });
+        mRequestButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), UserSolicitud.class);
                 startActivity(i);
             }
         });

@@ -20,7 +20,7 @@ public class Subject implements Comparable<Subject> {
 
     public Subject(String name, String classRoom, int time) {
         this.name = name;
-        this.classRoom =classRoom;
+        this.classRoom = classRoom;
         this.time = time;
     }
 

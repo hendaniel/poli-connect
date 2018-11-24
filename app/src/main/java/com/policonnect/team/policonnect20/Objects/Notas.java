@@ -1,6 +1,6 @@
 package com.policonnect.team.policonnect20.Objects;
 
-public class Notas {
+public class Notas implements Comparable<Notas> {
 
     /**
      * @param state si es 0 se está cursando, si es -1 está reprobada, si es 1 está aprobada
@@ -63,6 +63,11 @@ public class Notas {
 
     public void setDate(int date) {
         this.date = date;
+    }
+
+    @Override
+    public int compareTo(Notas o) {
+        return Integer.compare(date,o.getDate());
     }
 
 }

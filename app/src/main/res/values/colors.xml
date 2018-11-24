@@ -10,6 +10,8 @@
     <color name="yellow">#E6B44E</color>
     <color name="backgroundBlue">#c80f385a</color>
     <color name="white">#ffff</color>
+    <color name="backgroundCercan1">#28ffffff</color>
+    <color name="backgroundCercan2">#3cffffff</color>
     <color name="grey">#313030</color>
     <color name="black">#000</color>
     <color name="transparent">#00000000</color>

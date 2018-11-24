@@ -68,7 +68,6 @@ public class ListaDeNotas extends RecyclerView.Adapter<ListaDeNotas.ViewHolderDa
         }
 
         public void asignarDatos(Notas nota) {
-            double valGrade = nota.getGrade();
             int date = nota.getDate();
             name.setText(nota.getMateria());
             grade.setText(nota.getGradeString());
@@ -76,10 +75,15 @@ public class ListaDeNotas extends RecyclerView.Adapter<ListaDeNotas.ViewHolderDa
                 if (nota.getState() < 0) {
                     stateFrame.setImageResource(R.drawable.short_rectangle_red);
                     state.setText(R.string.reprobado);
-                } else if (nota.getState() > 0) {
+                } else {
                     stateFrame.setImageResource(R.drawable.short_rectangle_green);
                     state.setText(R.string.aprobado);
                 }
+            else {
+                stateFrame.setImageResource(R.drawable.short_rectangle_yellow);
+                state.setText(R.string.cursando);
+            }
+
 
         }
     }

@@ -1,7 +1,5 @@
 package com.policonnect.team.policonnect20;
 
-import android.util.Log;
-
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -72,7 +70,6 @@ public class DataBase {
         setStudentData();
         setLibraryData();
         setWelfareData();
-
     }
 
     private void setWelfareData() {
@@ -103,59 +100,6 @@ public class DataBase {
 
             }
         });
-/*
-        //código 0 Ping Pong
-        welfareData[0] = new DataBienestar("Ping Pong", "Juan Pablo López", "Mesas de Ping Pong");
-        welfareData[0].addTimeToDay(1, 1);
-        welfareData[0].addTimeToDay(2, 2);
-        welfareData[0].addTimeToDay(3, 2);
-        welfareData[0].addTimeToDay(3, 4);
-
-        //código 1 Rumba Aeróbica
-        welfareData[1] = new DataBienestar("Rumba Aeróbica", "Mariantonieta de las Nieves", "Salón de Danza");
-        welfareData[1].addTimeToDay(5, 4);
-        welfareData[1].addTimeToDay(6, 5);
-        welfareData[1].addTimeToDay(5, 5);
-
-        //código 2 Guitarra Eléctrica
-        welfareData[2] = new DataBienestar("Guitarra Eléctrica", "Pepito Pérez", "Salón de Música");
-        welfareData[2].addTimeToDay(4, 2);
-        welfareData[2].addTimeToDay(5, 2);
-        welfareData[2].addTimeToDay(6, 2);
-
-        //código 3 Guitarra Acústica
-        welfareData[3] = new DataBienestar("Guitarra Acústica", "Alberto Echeverry", "Salón de Música");
-        welfareData[3].addTimeToDay(2, 4);
-        welfareData[3].addTimeToDay(3, 4);
-        welfareData[3].addTimeToDay(4, 4);
-        welfareData[3].addTimeToDay(5, 4);
-  */
-        /*
-        //código 4 Gimnasio
-        welfareData[4] = new DataBienestar("Gimaniso", "Pedro Fontalvo y Mariana Guerrero", "Gimnasio");
-        for (int i = 0; i < 6; i++)
-            for (int j = 1; i < 10; j++)
-                welfareData[4].addTimeToDay(j, i);
-                */
-
-/*
-        //código 5 Pintura
-        welfareData[5] = new DataBienestar("Taller de Pintura", "Leonardo Da Vinci", "Salón de artes");
-        welfareData[3].addTimeToDay(2, 5);
-        welfareData[3].addTimeToDay(3, 5);
-        welfareData[3].addTimeToDay(4, 5);
-        welfareData[3].addTimeToDay(5, 5);
-        welfareData[3].addTimeToDay(2, 0);
-        welfareData[3].addTimeToDay(3, 0);
-        welfareData[3].addTimeToDay(4, 0);
-        welfareData[3].addTimeToDay(5, 0);
-        welfareData[3].addTimeToDay(6, 0);
-        welfareData[3].addTimeToDay(7, 0);
-        welfareData[3].addTimeToDay(8, 0);
-        welfareData[3].addTimeToDay(9, 0);
-*/
-
-
     }
 
     private void setLibraryData() {
@@ -181,6 +125,7 @@ public class DataBase {
                 listDataBComputer.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Servicio service = snapshot.getValue(Servicio.class);
+                    service.setIdServicio(2);
                     listDataBComputer.add(service);
                 }
                 setAvailableComputer();
@@ -208,6 +153,7 @@ public class DataBase {
                 listDataBStudy.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Servicio service = snapshot.getValue(Servicio.class);
+                    service.setIdServicio(1);
                     listDataBStudy.add(service);
                 }
                 setAvailableStudy();
@@ -237,6 +183,7 @@ public class DataBase {
                 listDataBVideo.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Servicio service = snapshot.getValue(Servicio.class);
+                    service.setIdServicio(3);
                     listDataBVideo.add(service);
                 }
                 setAvailableVideo();
@@ -293,6 +240,7 @@ public class DataBase {
                     Notas nota = new Notas(materia, grade, date);
                     listDataUGrades.add(nota);
                 }
+                Collections.sort(listDataUGrades);
                 UsuarioNotas.setView();
             }
 
@@ -328,6 +276,7 @@ public class DataBase {
                 for (int i = 0; i < listDataUSchedule.length; i++)
                     Collections.sort(listDataUSchedule[i]);
                 UsuarioHorario.setView();
+                PantallaUsuario.setNextClass();
             }
 
             @Override

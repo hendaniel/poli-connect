@@ -27,32 +27,31 @@
     </LinearLayout>
 
 
+    <TextView
+        android:id="@+id/itemState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:paddingLeft="21dp"
+        android:paddingTop="1dp"
+        android:shadowColor="@color/shadow"
+        android:shadowDx="2"
+        android:shadowDy="1"
+        android:shadowRadius="1"
+        android:text="@string/servicio"
+        android:textColor="@color/white"
+        android:textSize="15dp" />
 
-        <TextView
-            android:id="@+id/itemState"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="serif"
-            android:paddingLeft="21dp"
-            android:paddingTop="1dp"
-            android:shadowColor="@color/shadow"
-            android:shadowDx="2"
-            android:shadowDy="1"
-            android:shadowRadius="1"
-            android:text="@string/servicio"
-            android:textColor="@color/white"
-            android:textSize="15dp" />
-
-        <TextView
-            android:id="@+id/itemName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="serif"
-            android:paddingLeft="152dp"
-            android:paddingTop="1dp"
-            android:text="@string/nota"
-            android:textColor="@color/grey"
-            android:textSize="15dp" />
+    <TextView
+        android:id="@+id/itemName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:paddingLeft="152dp"
+        android:paddingTop="1dp"
+        android:text="@string/nota"
+        android:textColor="@color/grey"
+        android:textSize="15dp" />
 
 
     <TextView

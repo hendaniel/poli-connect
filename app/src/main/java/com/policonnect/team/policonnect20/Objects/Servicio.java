@@ -19,6 +19,8 @@ public class Servicio {
     private boolean occupied;
     private boolean group;
 
+    private int idServicio;
+
     public Servicio(String name, int number, boolean occupied, boolean group) {
         this.name = name;
         this.number = number;
@@ -69,5 +71,13 @@ public class Servicio {
 
     public String getNumberString() {
         return Integer.toString(number);
+    }
+
+    public int getIdServicio() {
+        return idServicio;
+    }
+
+    public void setIdServicio(int idServicio) {
+        this.idServicio = idServicio;
     }
 }

@@ -49,7 +49,7 @@ public class UsuarioHorario extends Activity {
         });
 
         mListView = findViewById(R.id.ScheduleList);
-        mListAdapter = new ListaDeMaterias(this ,listDatos);
+        mListAdapter = new ListaDeMaterias(this, listDatos);
         setView();
 
 
@@ -63,9 +63,13 @@ public class UsuarioHorario extends Activity {
         listDatos = DataBase.getListDataUSchedule();
     }
 
+    public static ArrayList<Subject>[] getHorario() {
+        return listDatos;
+    }
+
     public static void setView() {
-        if(mListView!=null)
-        mListView.setAdapter(mListAdapter);
+        if (mListView != null)
+            mListView.setAdapter(mListAdapter);
     }
 
 }

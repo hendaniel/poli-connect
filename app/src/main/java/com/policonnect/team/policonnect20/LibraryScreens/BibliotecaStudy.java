@@ -6,9 +6,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.policonnect.team.policonnect20.DataBase;
+import com.policonnect.team.policonnect20.GeneralMethods;
 import com.policonnect.team.policonnect20.ListAdapters.ListaDeServicios;
 import com.policonnect.team.policonnect20.Objects.Servicio;
 import com.policonnect.team.policonnect20.R;
@@ -31,22 +33,23 @@ public class BibliotecaStudy extends Activity {
     private static RecyclerView mRecycle;
     private ImageButton mBackButton;
     private TextView mTitle;
-    private boolean orderedByDisponibility;
+    private ImageView mBackground;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_biblioteca_service);
 
-        orderedByDisponibility = false;
         setCubiculos();
         orderCubiculosByNumber();
 
         mBackButton = findViewById(R.id.backButton);
         mRecycle = findViewById(R.id.recyclerCubiculos);
         mTitle = findViewById(R.id.title);
+        mBackground = findViewById(R.id.background_image_library);
 
         mTitle.setText(getString(R.string.cubiculosEstudio));
+        mBackground.setImageResource(GeneralMethods.getRandomBackGroundLibrary());
 
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -20,6 +20,7 @@
 
     <!-- Pantalla Usuario -->
     <string name="horario">Horario</string>
+    <string name="solicitud">Smart Campus</string>
     <string name="messageDialog">¿Esta seguro de que desea cerrar sesion?</string>
     <string name="titleDialog">Cerrar Sesion</string>
     <string name="positiveDialog">Estoy Seguro</string>
@@ -28,6 +29,7 @@
     <string name="nota">Nota</string>
     <string name="aprobado">Aprobado</string>
     <string name="reprobado">Reprobado</string>
+    <string name="cursando">Cursando</string>
     <string name="indicador">Indicador</string>
     <string name="materia">Materia</string>
 

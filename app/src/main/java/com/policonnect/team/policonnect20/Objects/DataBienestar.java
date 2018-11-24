@@ -7,7 +7,7 @@ public class DataBienestar {
     private String name;
     private String teacher;
     private String place;
-    private TreeSet<Integer>[] horario;
+    private static TreeSet<Integer>[] horario;
 
     public DataBienestar(String name, String teacher, String place) {
         this.name = name;
@@ -46,12 +46,11 @@ public class DataBienestar {
     }
 
     /**
-     * @param day Dia en el que se ve la actividad siendo 0 Lunes, 1 Martes, 2 Miércoles, 3 Jueves,
-     *            4 Viernes y 5 Sábado.
-     * @return Set conteniendo en horario
+
+     * @return Arreglo de set conteniendo en horario
      */
-    public TreeSet<Integer> getDayTimes(int day) {
-        return horario[day];
+    public static TreeSet<Integer>[] getSchedule() {
+        return horario;
     }
 
 

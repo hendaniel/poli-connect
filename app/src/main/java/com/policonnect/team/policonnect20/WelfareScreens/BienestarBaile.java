@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.policonnect.team.policonnect20.DataBase;
+import com.policonnect.team.policonnect20.GeneralMethods;
 import com.policonnect.team.policonnect20.Objects.DataBienestar;
 import com.policonnect.team.policonnect20.R;
 
@@ -32,11 +33,12 @@ public class BienestarBaile extends Activity {
 
         datos = DataBase.getWelfareActivity(1);
 
-        mHeaderColor.setColorFilter(R.color.colorRumba);
+        mHeaderColor.setImageResource(R.color.colorRumba);
         mNameScreen.setText(datos.getName());
         mNameScreen2.setText(datos.getName());
         mPlace.setText(datos.getPlace());
         mProfessor.setText(datos.getTeacher());
+        mSchedule.setText(GeneralMethods.welfareScheduleString(datos.getSchedule()));
 
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
