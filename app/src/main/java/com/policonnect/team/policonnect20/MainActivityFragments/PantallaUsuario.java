@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 import com.policonnect.team.policonnect20.DataBase;
 import com.policonnect.team.policonnect20.GeneralMethods;
 import com.policonnect.team.policonnect20.Login;
@@ -41,6 +43,7 @@ public class PantallaUsuario extends Fragment {
     private static TextView mTitle;
 
     private static final String TAG = "MainActivity";
+    private FirebaseAuth auth;
 
 
     @Nullable
@@ -48,6 +51,7 @@ public class PantallaUsuario extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_pantalla_usuario, container, false);
 
+        auth = FirebaseAuth.getInstance();
         setViews(view);
         setButtonsListeners();
 
@@ -138,10 +142,7 @@ public class PantallaUsuario extends Fragment {
 
     private void goToLoginActivity() {
 
-
-        Login.mAuth.signOut();
-        Intent i = new Intent(getActivity(), Login.class);
-        startActivity(i);
-        getActivity().finish();
+        auth.signOut();
+        System.exit(0);
     }
 }
