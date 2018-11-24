@@ -32,8 +32,7 @@ public class BienestarBaile extends Activity {
         setViews();
 
         datos = DataBase.getWelfareActivity(1);
-
-        mHeaderColor.setImageResource(R.color.colorRumba);
+        mHeaderColor.setBackgroundColor(getResources().getColor(R.color.colorRumba));
         mNameScreen.setText(datos.getName());
         mNameScreen2.setText(datos.getName());
         mPlace.setText(datos.getPlace());

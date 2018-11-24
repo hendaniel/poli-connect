@@ -32,8 +32,7 @@ public class BienestarGuitarraAcustica extends Activity {
         setViews();
 
         datos = DataBase.getWelfareActivity(3);
-
-        mHeaderColor.setImageResource(R.color.colorMusica);
+        mHeaderColor.setBackgroundColor(getResources().getColor(R.color.colorMusica));
         mNameScreen.setText(datos.getName());
         mNameScreen2.setText(datos.getName());
         mPlace.setText(datos.getPlace());

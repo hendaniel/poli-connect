@@ -32,8 +32,7 @@ public class BienestarGuitarraElectrica extends Activity {
         setViews();
 
         datos = DataBase.getWelfareActivity(2);
-
-        mHeaderColor.setImageResource(R.color.colorMusica);
+        mHeaderColor.setBackgroundColor(getResources().getColor(R.color.colorMusica));
         mNameScreen.setText(datos.getName());
         mNameScreen2.setText(datos.getName());
         mPlace.setText(datos.getPlace());

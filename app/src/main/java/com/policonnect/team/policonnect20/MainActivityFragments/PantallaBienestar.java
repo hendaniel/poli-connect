@@ -41,6 +41,7 @@ public class PantallaBienestar extends Fragment {
         View view = inflater.inflate(R.layout.fragment_pantalla_bienestar, container, false);
         setViews(view);
         setButtonsListeners();
+        mGymButton.setEnabled(false);
         return view;
     }
 

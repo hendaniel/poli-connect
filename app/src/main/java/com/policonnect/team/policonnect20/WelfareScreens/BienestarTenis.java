@@ -32,8 +32,7 @@ public class BienestarTenis extends Activity {
         setViews();
 
         datos = DataBase.getWelfareActivity(0);
-
-        mHeaderColor.setImageResource(R.color.colorPingPong);
+        mHeaderColor.setBackgroundColor(getResources().getColor(R.color.colorPingPong));
         mNameScreen.setText(datos.getName());
         mNameScreen2.setText(datos.getName());
         mPlace.setText(datos.getPlace());

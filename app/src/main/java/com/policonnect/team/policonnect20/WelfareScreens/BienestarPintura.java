@@ -32,8 +32,7 @@ public class BienestarPintura extends Activity {
         setViews();
 
         datos = DataBase.getWelfareActivity(5);
-
-        mHeaderColor.setImageResource(R.color.colorPintura);
+        mHeaderColor.setBackgroundColor(getResources().getColor(R.color.colorPintura));
         mNameScreen.setText(datos.getName());
         mNameScreen2.setText(datos.getName());
         mPlace.setText(datos.getPlace());
